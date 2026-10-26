@@ -1,0 +1,4 @@
+# dsh-model-master bundle patch: mounts Model Master into the DSH runtime profile.
+- insert:
+    - id: model-master
+      name: dsh-model-master

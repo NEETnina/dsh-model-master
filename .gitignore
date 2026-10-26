@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.system_generated/
+.idea/
+.vscode/
+package-lock.json
+*.bak

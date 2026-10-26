@@ -1,0 +1,78 @@
+{
+  "name": "dsh-model-master",
+  "version": "1.6.2",
+  "description": "模型选择大师 (Model Selection Master) for DeepSeek Harness — 15-language UI (top-15 world languages) — 保留 DSH 原生模型按钮与菜单，在原版狭小下拉列表即将弹出时无缝接管为 Spotlight 毛玻璃大面板。集成 TTFT/TPS 流式测速（失败如实展示、绝不编造数据）、原生渠道分组、⚡ 智能优选、全球百强榜（点击行搜本机渠道）；内置推理档位 FX（官方菜单推理等级行滑条 + 档位切换芯片能量闪动）；原生模型位被其它插件占用时自动出现工具行备用入口（防顶掉）。",
+  "icon": "./icon.svg",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.js\"",
+    "format": "prettier --write \"*.js\" \"tests/*.js\" \"*.md\" \"*.json\" \"*.yml\"",
+    "format:check": "prettier --check \"*.js\" \"tests/*.js\" \"*.md\" \"*.json\" \"*.yml\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NEETnina/dsh-model-master.git"
+  },
+  "homepage": "https://github.com/NEETnina/dsh-model-master#readme",
+  "bugs": {
+    "url": "https://github.com/NEETnina/dsh-model-master/issues"
+  },
+  "author": "NEETnina",
+  "devDependencies": {
+    "prettier": "^3.3.0"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "model-selector",
+    "speed-test",
+    "benchmark",
+    "leaderboard",
+    "arena",
+    "spotlight"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0 <0.3.0 || >=0.2.1-rc.0 <0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "license": "MIT",
+  "contributors": [
+    "dsh-codex-effort-slider contributors (reasoning-effort slider, via dsh-better-panel)",
+    "better-dsh-codex-effort-slider contributors (dsh-better-panel)"
+  ]
+}

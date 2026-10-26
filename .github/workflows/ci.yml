@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The plugin relies on global fetch and node:test.
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dev dependencies
+        run: npm install --no-save prettier@3
+
+      - name: Syntax check
+        run: |
+          node --check index.js
+          node --check client.js
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Formatting
+        run: npx prettier --check "*.js" "tests/*.js" "*.md" "*.json" "*.yml"
+
+      - name: Package contents
+        run: |
+          npm pack --dry-run 2>&1 | tee pack.log
+          # A file listed in package.json `files` that is missing on disk is
+          # silently dropped from the tarball. Assert every entry exists.
+          node -e '
+            const fs = require("fs");
+            const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            const missing = pkg.files.filter((f) => !fs.existsSync(f));
+            if (missing.length > 0) {
+              console.error("package.json files entries missing on disk:", missing.join(", "));
+              process.exit(1);
+            }
+            console.log("all", pkg.files.length, "files entries present");
+          '

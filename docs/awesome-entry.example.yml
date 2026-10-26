@@ -1,0 +1,10 @@
+url: https://github.com/NEETnina/dsh-model-master
+name: NEETnina/dsh-model-master
+category: model
+description:
+  en: 'Model selector for the DSH composer: search across providers, probe any model with a real streaming request to measure TTFT and TPS, and jump from a leaderboard row to a local search for channels of that name.'
+  zh: 'DSH 输入框的模型选择器：跨渠道搜索，对任意模型发起真实流式请求测出 TTFT 与 TPS，并从榜单点一行搜索本机的同名渠道。'
+  # 可选：仅 GitHub 托管的位图（png/jpg/jpeg/webp），SVG 会被拒绝。
+  # icon: https://raw.githubusercontent.com/NEETnina/dsh-model-master/main/assets/icon-180.png
+  # 可选：不发 npm 时用。资产名不要带版本号，否则下次发版就会 404。
+  # tarball: https://github.com/NEETnina/dsh-model-master/releases/latest/download/dsh-model-master.tgz

@@ -1,0 +1,16 @@
+# Editor defaults for dsh-model-master.
+# Matches .prettierrc.json so editors and CI agree on the same shape.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown keeps its deliberate trailing double-space line breaks.
+trim_trailing_whitespace = false

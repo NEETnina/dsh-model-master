@@ -293,7 +293,7 @@ DSH **没有官方市场**。用户可以在 Plugins 页面打开实验特性 _C
 node --check index.js && node --check client.js
 npm test                                   # 25 项全绿
 npm run format:check
-npm pack --dry-run                         # 8 个文件，含 README / LICENSE / icon
+npm pack --dry-run                         # 确认文件清单（含 README / LICENSE / icon / assets）
 node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
 ```
 

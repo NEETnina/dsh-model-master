@@ -2,6 +2,32 @@
 
 记录 `dsh-model-master`（模型选择大师）的版本变更。日期均为本地时间。
 
+## [1.6.3] — 2026-10-26
+
+首次公开发布后的收尾：统一项目名、补市场展示素材、修掉一处只在 Node 20 上失败的测试写法。
+
+### 修正 (Fixed)
+
+- **测试在 Node 20 上必失败**：`node --test "tests/**/*.test.js"` 里的 glob 只有 Node 22 起才支持，
+  在 Node 20 上它被当成字面路径，报 `Could not find tests/**/*.test.js`，CI 的 20 号作业直接红。
+  改为裸 `node --test`，由测试运行器按命名约定递归发现（三个版本通用）。
+- **README 换行符污染**：新增 `.gitattributes` 强制 LF，并重新规整索引，避免全仓库以 CRLF 入库。
+- **README 残留占位符**：`github:<you>/dsh-model-master` 改为真实路径。
+- **自检清单里写死文件数**：README 与 `docs/SUBMIT-awesome-dsh-plugin.md` 中的数量说法改为不写死，
+  或修正为可核对的真实值。
+
+### 改进 (Changed)
+
+- **项目名统一为 `dsh-model-master`**：不再使用英文名 "Model Selection Master"。
+  `LICENSE`、`THIRD-PARTY-NOTICES.md`、`client.js` / `index.js` 文件头、`package.json` description 一并统一；
+  两处版权署名保持逐字符一致。
+
+### 新增 (Added)
+
+- **市场展示素材**：`assets/icon-180.png`（清单只收 GitHub 托管的位图，SVG 会被拒）、
+  `assets/icon-512.png`，以及 4 张真实运行实例的截图，通过 `screenshots.json` 声明（1–8 张、相对路径、不跳出仓库）。
+- **`.github/workflows/ci.yml`**：Node 20 / 22 / 24 矩阵，跑语法检查、单测、格式与打包清单校验。
+
 ## [1.6.2] — 2026-10-26
 
 发布前全面自检：补齐打包元数据、修掉两个真实功能缺陷、把 CHANGELOG 里承诺的冒烟测试真正落进仓库。

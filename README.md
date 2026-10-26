@@ -102,7 +102,7 @@ dsh plugin --profile <your-profile> add dsh-model-master
 ### 从源码安装
 
 ```bash
-git clone https://github.com/<you>/dsh-model-master.git
+git clone https://github.com/NEETnina/dsh-model-master.git
 cd dsh-model-master
 npm install
 dsh plugin --profile web add .

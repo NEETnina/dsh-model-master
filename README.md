@@ -9,13 +9,22 @@
 </p>
 
 <p align="center">
-  <img src="./assets/screenshot-1.png" width="720" alt="模型选择面板：渠道分组、真实测速与智能优选" />
+  <img src="./assets/screenshot-1.png" width="49%" alt="模型选择面板（深色）：渠道分组、真实测速与智能优选" />
+  <img src="./assets/screenshot-5.png" width="49%" alt="模型选择面板（浅色）" />
 </p>
 
 <p align="center">
-  <img src="./assets/screenshot-2.png" width="49%" alt="TOP100 全球榜单" />
+  <img src="./assets/screenshot-2.png" width="49%" alt="TOP100 全球榜单（深色）" />
+  <img src="./assets/screenshot-6.png" width="49%" alt="TOP100 全球榜单（浅色）" />
+</p>
+
+<p align="center">
+  <img src="./assets/screenshot-3.png" width="49%" alt="15 种界面语言" />
   <img src="./assets/screenshot-4.png" width="49%" alt="英文界面" />
 </p>
+
+<sub>深浅主题各一张，两种配色下对比度均按同一套令牌缩放。<br />
+深/浅两张为同一面板的两套主题，非不同版本。</sub>
 
 ---
 

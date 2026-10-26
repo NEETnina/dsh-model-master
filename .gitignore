@@ -7,3 +7,4 @@ Thumbs.db
 .vscode/
 package-lock.json
 *.bak
+.playwright-cli/

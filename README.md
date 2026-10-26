@@ -247,12 +247,22 @@ npm run format:check
 
 ### 发布到 npm
 
+⚠️ **先确认 registry 是官方源。** 国内机器常把 `registry` 指向镜像（如 `registry.npmmirror.com`），
+那是**只读的下载加速镜像**，能装包但**不能发包**，`npm publish` 会直接失败；
+而 `npm login` 还会把你带到镜像站自己的账号页——那个账号和 npm 发包毫无关系。
+
+```bash
+npm config get registry        # 应当是 https://registry.npmjs.org/
+```
+
 ```bash
 npm test                          # 必须先全绿
 npm pack --dry-run                # 确认打出的文件清单
 npm version patch                 # 或 minor / major
-npm publish --access public
+npm publish --access public --registry=https://registry.npmjs.org
 ```
+
+`--registry` 显式指定官方源，可以覆盖本地镜像配置，不改动你的全局设置。
 
 清单里必须为真的三件事，`npm publish` 不会替你检查：
 

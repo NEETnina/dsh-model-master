@@ -2412,6 +2412,7 @@ window.__ModuleLoader__.load({
       .dmm-header-icon {
         width: 16px;
         height: 16px;
+        margin-right: 2px;
         color: var(--dmm-accent);
         flex-shrink: 0;
       }
@@ -3977,12 +3978,26 @@ window.__ModuleLoader__.load({
                     className: 'dmm-header-icon',
                     width: 18,
                     height: 18,
-                    viewBox: '0 0 24 24',
-                    fill: 'none',
-                    stroke: 'currentColor',
-                    strokeWidth: 2
+                    viewBox: '30 36 120 122',
+                    fill: 'none'
                   },
-                  h('path', { d: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' })
+                  // Same mark as icon.svg: four strokes reading as M, with the
+                  // central V carried down past the baseline as a selection
+                  // arrow. Kept inline so the header needs no extra request.
+                  h(
+                    'g',
+                    {
+                      stroke: 'currentColor',
+                      strokeWidth: 21,
+                      strokeLinecap: 'round',
+                      fill: 'none'
+                    },
+                    h('path', { d: 'M48 130 V58' }),
+                    h('path', { d: 'M48 58 L90 106' }),
+                    h('path', { d: 'M90 106 L132 58' }),
+                    h('path', { d: 'M132 58 V130' })
+                  ),
+                  h('path', { d: 'M79 100 L90 150 L101 100 Z', fill: 'currentColor' })
                 ),
                 h(
                   'div',

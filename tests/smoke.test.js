@@ -4,8 +4,8 @@
  * The plugin is a `window.__ModuleLoader__.load({id, factory})` bundle, so a
  * throw anywhere inside the factory happens during *materialization* — before
  * any React component renders — and takes the whole Web bundle down with it
- * ("HARNESS Failed to load plugins", black screen). That is exactly what
- * shipped in v1.6.0/v1.6.1.
+ * ("HARNESS Failed to load plugins", black screen). Two internal builds shipped
+ * with exactly that defect before the public release line was reset.
  *
  * This test executes the real factory against a minimal DOM + React stub and
  * asserts the observable contract a broken build would violate:
@@ -13,7 +13,7 @@
  *   - it exports apply / inject / name,
  *   - it injects its <style> tag during materialization,
  *   - every i18n dictionary has the same key set (no missing translation),
- *   - the persisted language is actually honoured (the v1.6.1 regression).
+ *   - the persisted language is actually honoured (a past regression).
  *
  * The stub is deliberately small: it is just enough surface for this plugin's
  * module-level code, not a DOM implementation.

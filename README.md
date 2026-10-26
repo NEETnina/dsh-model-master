@@ -2,7 +2,7 @@
 
 > A Spotlight-style model switcher for **DeepSeek Harness (DSH)** — with real streaming speed probes, a live global leaderboard, and a 15-language UI.
 
-把 DSH 原生那个狭小的模型下拉列表，接管成一块可搜索、可测速、可对照全球榜单的毛玻璃大面板。**你的模型按钮和菜单仍然是原生的** —— 插件只在"小窗口即将弹出"的那一刻无缝接管。
+把 DSH 原生那个狭小的模型下拉列表，接管成一块可搜索、可测速、可对照全球榜单的居中大面板。**你的模型按钮和菜单仍然是原生的** —— 插件只在"小窗口即将弹出"的那一刻无缝接管。
 
 <p align="center">
   <img src="./icon.svg" width="96" height="96" alt="dsh-model-master icon" />
@@ -240,7 +240,7 @@ npm run format:check
 | 方式        | 用户侧命令                                                      | 需要构建授权                                 |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------- |
 | **npm**     | `dsh plugin --profile web add dsh-model-master`                 | 否（预构建产物）                             |
-| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.6.2.tgz`     | 否（预构建产物）                             |
+| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.0.0.tgz`     | 否（预构建产物）                             |
 | **git**     | `dsh plugin --profile web add github:NEETnina/dsh-model-master` | **是**（拉的是源码，pnpm 需授权 build 脚本） |
 
 因为本仓库是纯 JS、无构建步骤，git 安装虽然能跑，但**推荐 npm 或 tarball** —— 用户不必授予任何安装期脚本权限。
@@ -288,7 +288,7 @@ DSH **没有官方市场**。用户可以在 Plugins 页面打开实验特性 _C
       "icon": "icons/model-master.svg",
       "versions": [
         {
-          "version": "1.6.2",
+          "version": "1.0.0",
           "publishTimestamp": 1761536000,
           "source": { "type": "npm" },
           "engines": { "dsh": ">=0.2.0 <0.3.0" }
@@ -322,7 +322,7 @@ node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
 2. 起一个 throwaway profile 装一次真的：
 
    ```bash
-   dsh plugin --profile smoke add ./dsh-model-master-1.6.2.tgz
+   dsh plugin --profile smoke add ./dsh-model-master-1.0.0.tgz
    dsh --profile smoke --dump-config | grep dsh-model-master
    ```
 

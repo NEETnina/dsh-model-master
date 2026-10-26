@@ -50,7 +50,7 @@ test('the probe contract carries the fields the client renders', () => {
   for (const field of ['ttft', 'tps', 'score', 'tokens', 'testedAt', 'success', 'provider', 'model']) {
     assert.ok(HOST.includes(`${field}:`), `probe result must report "${field}"`)
   }
-  // Added in 1.6.2 so a surprising TTFT can be traced to the reasoning tier.
+  // Added so a surprising TTFT can be traced to the reasoning tier.
   assert.ok(HOST.includes('reasoningEffort: appliedEffort'), 'probe result must report the dispatched effort')
 })
 
@@ -58,7 +58,7 @@ test('the leaderboard contract carries the fields the client renders', () => {
   for (const field of ['updatedAt', 'surveyDate', 'surveyTimeText', 'isOnline', 'models']) {
     assert.ok(HOST.includes(field), `leaderboard payload must carry "${field}"`)
   }
-  // The translatable provenance kind added in 1.6.2.
+  // The translatable provenance kind.
   assert.ok(HOST.includes("sourceKind = 'live'"), 'host must classify an online survey as live')
   assert.ok(HOST.includes("sourceKind = 'offline'"), 'host must classify a failed survey as offline')
   assert.ok(HOST.includes("sourceKind: 'pending'"), 'host must classify an empty cache as pending')

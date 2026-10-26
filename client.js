@@ -2379,7 +2379,7 @@ window.__ModuleLoader__.load({
         height: 80vh;
         max-height: 780px;
         background: var(--dmm-bg-modal);
-        /* Glassmorphism, as promised: translucent shell over a blurred page */
+        /* The page behind is blurred by .dmm-backdrop; this shell stays nearly opaque on purpose so text reads on any wallpaper */
         backdrop-filter: blur(22px) saturate(1.5);
         -webkit-backdrop-filter: blur(22px) saturate(1.5);
         border: 1px solid var(--dmm-border);

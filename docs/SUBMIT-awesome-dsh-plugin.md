@@ -96,7 +96,7 @@ tarball: https://github.com/NEETnina/dsh-model-master/releases/latest/download/d
 ⚠️ 指南专门警告过的坑：`latest/download/` 只在请求时解析 `latest`，**文件名是照字面取的**。资产名带版本号的话，提交当天有效，下次发版就 404。
 
 - 要么让**资产名不带版本号**（如上）
-- 要么钉住 release tag：`.../releases/download/v1.6.2/dsh-model-master-1.6.2.tgz`
+- 要么钉住 release tag：`.../releases/download/v1.0.0/dsh-model-master.tgz`
 
 我们是纯 JS、可从源码安装，所以这一项非必需；但发了 npm 就更好。
 

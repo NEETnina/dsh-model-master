@@ -8,6 +8,15 @@
   <img src="./icon.svg" width="96" height="96" alt="dsh-model-master icon" />
 </p>
 
+<p align="center">
+  <img src="./assets/screenshot-1.png" width="720" alt="模型选择面板：渠道分组、真实测速与智能优选" />
+</p>
+
+<p align="center">
+  <img src="./assets/screenshot-2.png" width="49%" alt="TOP100 全球榜单" />
+  <img src="./assets/screenshot-4.png" width="49%" alt="英文界面" />
+</p>
+
 ---
 
 ## 目录

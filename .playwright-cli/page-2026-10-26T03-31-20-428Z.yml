@@ -1,0 +1,1093 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "新建会话" [ref=e9] [cursor=pointer]
+        - button "收起侧边栏" [ref=e38] [cursor=pointer]
+      - button "新建会话" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: 新会话
+        - generic [aria-hidden]:
+          - generic:
+            - generic: Ctrl
+            - generic: +
+            - generic: Alt
+            - generic: +
+            - generic: "N"
+      - navigation "全局面板" [ref=e47]:
+        - button "插件" [ref=e48] [cursor=pointer]
+        - button "自动化任务" [ref=e57] [cursor=pointer]
+        - button "上下文洞察" [ref=e64] [cursor=pointer]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: 工作区
+          - generic [ref=e76]:
+            - button "搜索会话" [ref=e77] [cursor=pointer]
+            - textbox "搜索会话名称"
+          - generic [ref=e81]:
+            - button "视图选项" [ref=e83] [cursor=pointer]
+            - button "添加工作区" [ref=e87] [cursor=pointer]
+        - tree "会话" [ref=e92]:
+          - generic [ref=e93]:
+            - treeitem "dsh-model-master" [expanded] [ref=e95] [cursor=pointer]
+            - treeitem "新会话" [selected] [ref=e292] [cursor=pointer]
+            - treeitem "1 个自动化任务 代控GitHub账号发布项目 3分钟" [ref=e296] [cursor=pointer]:
+              - generic [ref=e297]: 1 个自动化任务
+              - generic [ref=e304]: 代控GitHub账号发布项目
+              - generic [ref=e305]: 3分钟
+            - treeitem "插件发布前全面检查 26分钟" [ref=e307] [cursor=pointer]:
+              - generic [ref=e309]: 插件发布前全面检查
+              - generic [ref=e310]: 26分钟
+          - treeitem "26056" [ref=e103] [cursor=pointer]
+          - treeitem "dsh-model-master" [ref=e111] [cursor=pointer]
+          - treeitem "ShuaKe" [ref=e119] [cursor=pointer]
+          - treeitem "作品素材" [ref=e127] [cursor=pointer]
+          - treeitem "vibe知识大赏" [ref=e135] [cursor=pointer]
+          - treeitem "DS-test" [ref=e143] [cursor=pointer]
+          - treeitem "Retrieval-based-Voice-Conversion-WebUI" [ref=e151] [cursor=pointer]
+          - treeitem "emo文案" [ref=e159] [cursor=pointer]
+          - treeitem "2026 年第二届全国大学生仿真建模应用挑战赛" [ref=e167] [cursor=pointer]
+          - treeitem "E:\\" [ref=e175] [cursor=pointer]
+          - treeitem "OpenLive2D" [ref=e183] [cursor=pointer]
+          - treeitem "Godot" [ref=e191] [cursor=pointer]
+          - treeitem "work" [ref=e199] [cursor=pointer]
+          - treeitem [ref=e207] [cursor=pointer]
+          - treeitem "全国大学生数学建模竞赛" [ref=e213] [cursor=pointer]
+          - treeitem [ref=e221] [cursor=pointer]
+          - treeitem [ref=e227] [cursor=pointer]
+          - treeitem "未分组" [ref=e312] [cursor=pointer]
+      - button "账号菜单" [ref=e238] [cursor=pointer]:
+        - generic [ref=e318]: 153******86
+    - generic [ref=e246]:
+      - banner [ref=e320]:
+        - button "打开右侧边栏" [ref=e325] [cursor=pointer]
+      - generic [ref=e252]:
+        - generic [ref=e260]:
+          - generic [ref=e261]: 探索未至之境
+          - generic [ref=e262]: 预览版
+        - generic [ref=e263]:
+          - button "选择工作区" [ref=e264] [cursor=pointer]:
+            - generic [ref=e267]: dsh-model-master
+          - button "标准模式" [ref=e334] [cursor=pointer]
+        - generic [ref=e272]:
+          - generic [ref=e274]:
+            - textbox "描述你想要构建的内容, / 调用指令, @ 文件或对话" [ref=e343]
+            - generic [aria-hidden]: 描述你想要构建的内容, / 调用指令, @ 文件或对话
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - button "添加文件或调用指令" [ref=e344] [cursor=pointer]
+              - button "访问模式，当前：完全权限" [ref=e349] [cursor=pointer]:
+                - generic [ref=e353]: 完全权限
+            - generic [ref=e278]:
+              - button "选择模型，当前 DeepSeek-V4.1-Flash · x0.12，推理等级 Extra High" [ref=e360] [cursor=pointer]:
+                - generic [ref=e361]: DeepSeek-V4.1-Flash · x0.12
+                - generic [ref=e363]: Extra High
+              - button "发送消息" [disabled] [ref=e366]
+  - dialog "模型选择大师" [ref=e389]:
+    - generic [ref=e390]:
+      - generic [ref=e394]:
+        - text: 模型选择
+        - generic [ref=e395]: · 17 个渠道 · 1092 款模型
+      - generic [ref=e396]:
+        - button "TOP100" [ref=e397] [cursor=pointer]
+        - button "toggle theme" [ref=e399] [cursor=pointer]
+        - generic [ref=e402]:
+          - button "界面语言" [expanded] [active] [ref=e403] [cursor=pointer]:
+            - generic [ref=e407]: zh
+          - menu [ref=e2501]:
+            - menuitem "English" [ref=e2502] [cursor=pointer]
+            - menuitem "中文 ✓" [ref=e2503] [cursor=pointer]:
+              - text: 中文
+              - generic [ref=e2504]: ✓
+            - menuitem "हिन्दी" [ref=e2505] [cursor=pointer]
+            - menuitem "Español" [ref=e2506] [cursor=pointer]
+            - menuitem "Français" [ref=e2507] [cursor=pointer]
+            - menuitem "العربية" [ref=e2508] [cursor=pointer]
+            - menuitem "বাংলা" [ref=e2509] [cursor=pointer]
+            - menuitem "Português" [ref=e2510] [cursor=pointer]
+            - menuitem "Русский" [ref=e2511] [cursor=pointer]
+            - menuitem "اردو" [ref=e2512] [cursor=pointer]
+            - menuitem "Bahasa Indonesia" [ref=e2513] [cursor=pointer]
+            - menuitem "Deutsch" [ref=e2514] [cursor=pointer]
+            - menuitem "日本語" [ref=e2515] [cursor=pointer]
+            - menuitem "한국어" [ref=e2516] [cursor=pointer]
+            - menuitem "Türkçe" [ref=e2517] [cursor=pointer]
+        - button "清除测速" [ref=e408] [cursor=pointer]
+        - button "ESC ✕" [ref=e411] [cursor=pointer]:
+          - generic [ref=e412]: ESC
+          - text: ✕
+    - textbox "搜索模型名称、提供商或推理模式..." [ref=e415]
+    - generic [ref=e424]:
+      - button "‹" [ref=e425] [cursor=pointer]
+      - generic [ref=e426]:
+        - button "全部 1092" [ref=e427] [cursor=pointer]:
+          - text: 全部
+          - generic [ref=e428]: "1092"
+        - button "DeepSeek 2" [ref=e429] [cursor=pointer]:
+          - text: DeepSeek
+          - generic [ref=e430]: "2"
+        - button "DeepSeek Account 2" [ref=e431] [cursor=pointer]:
+          - text: DeepSeek Account
+          - generic [ref=e432]: "2"
+        - button "CodeArts Agent 7" [ref=e433] [cursor=pointer]:
+          - text: CodeArts Agent
+          - generic [ref=e434]: "7"
+        - button "CodeBuddy (腾讯) 21" [ref=e435] [cursor=pointer]:
+          - text: CodeBuddy (腾讯)
+          - generic [ref=e436]: "21"
+        - button "WorkBuddy (国际版) 32" [ref=e437] [cursor=pointer]:
+          - text: WorkBuddy (国际版)
+          - generic [ref=e438]: "32"
+        - button "Qoder 17" [ref=e439] [cursor=pointer]:
+          - text: Qoder
+          - generic [ref=e440]: "17"
+        - button "Qoder (中国版) 14" [ref=e441] [cursor=pointer]:
+          - text: Qoder (中国版)
+          - generic [ref=e442]: "14"
+        - button "TRAE (字节) 40" [ref=e443] [cursor=pointer]:
+          - text: TRAE (字节)
+          - generic [ref=e444]: "40"
+        - button "TRAE 国际版 (字节) 28" [ref=e445] [cursor=pointer]:
+          - text: TRAE 国际版 (字节)
+          - generic [ref=e446]: "28"
+        - button "Cline 497" [ref=e447] [cursor=pointer]:
+          - text: Cline
+          - generic [ref=e448]: "497"
+        - button "Loomy (讯飞) 10" [ref=e449] [cursor=pointer]:
+          - text: Loomy (讯飞)
+          - generic [ref=e450]: "10"
+        - button "Raccoon (商汤) 7" [ref=e451] [cursor=pointer]:
+          - text: Raccoon (商汤)
+          - generic [ref=e452]: "7"
+        - button "MiniMax Code 2" [ref=e453] [cursor=pointer]:
+          - text: MiniMax Code
+          - generic [ref=e454]: "2"
+        - button "GitHub Copilot 28" [ref=e455] [cursor=pointer]:
+          - text: GitHub Copilot
+          - generic [ref=e456]: "28"
+        - button "Gemini Code Assist 1" [ref=e457] [cursor=pointer]:
+          - text: Gemini Code Assist
+          - generic [ref=e458]: "1"
+        - button "ZCode (智谱) 2" [ref=e459] [cursor=pointer]:
+          - text: ZCode (智谱)
+          - generic [ref=e460]: "2"
+        - button "Our Free Model 382" [ref=e461] [cursor=pointer]:
+          - text: Our Free Model
+          - generic [ref=e462]: "382"
+      - button "›" [ref=e463] [cursor=pointer]
+    - generic [ref=e464]:
+      - generic [ref=e465]:
+        - generic [ref=e1184]: 100 款有实测分数的模型 · 点击行即可在本机搜索同名渠道
+        - button "同步最新榜单" [ref=e1185] [cursor=pointer]
+      - generic [ref=e1190]:
+        - text: 数据来源：OpenRouter 模型目录 ·
+        - link "Artificial Analysis" [ref=e1191] [cursor=pointer]:
+          - /url: https://artificialanalysis.ai/leaderboards/models
+        - text: 指数 +
+        - link "Design Arena" [ref=e1196] [cursor=pointer]:
+          - /url: https://designarena.ai/leaderboard
+        - text: Elo（每日同步） · 更新于 2026-10-26 05:25（6 小时前）
+      - button "第 1 名 Claude Opus 5.5，激活可在本机搜索同名模型" [ref=e1201] [cursor=pointer]:
+        - generic [ref=e1202]:
+          - generic [ref=e1203]: "01"
+          - generic [ref=e1204]: Claude Opus 5.5
+          - generic [ref=e1205]: Anthropic
+        - 'generic "anthropic/claude-opus-5.5 厂商: Anthropic 智能指数: 57.6 Arena Elo: 1463 (3d) 上下文: 977K 价格: $4.00 / $20.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1206]':
+          - generic [ref=e1207]: 智能 57.6
+          - generic [ref=e1208]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1210]: 搜本机
+      - button "第 2 名 Claude Sonnet 5.5，激活可在本机搜索同名模型" [ref=e1214] [cursor=pointer]:
+        - generic [ref=e1215]:
+          - generic [ref=e1216]: "02"
+          - generic [ref=e1217]: Claude Sonnet 5.5
+          - generic [ref=e1218]: Anthropic
+        - 'generic "anthropic/claude-sonnet-5.5 厂商: Anthropic 智能指数: 56 Arena Elo: 1421 (gamedev) 上下文: 977K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1219]':
+          - generic [ref=e1220]: 智能 56
+          - generic [ref=e1221]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1223]: 搜本机
+      - button "第 3 名 Kimi K3.1 Pro，激活可在本机搜索同名模型" [ref=e1227] [cursor=pointer]:
+        - generic [ref=e1228]:
+          - generic [ref=e1229]: "03"
+          - generic [ref=e1230]: Kimi K3.1 Pro
+          - generic [ref=e1231]: MoonshotAI
+        - 'generic "moonshotai/kimi-k3.1-pro 厂商: MoonshotAI 智能指数: 55.1 Arena Elo: 1391 (gamedev) 上下文: 1024K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1232]':
+          - generic [ref=e1233]: 智能 55.1
+          - generic [ref=e1234]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1236]: 搜本机
+      - button "第 4 名 Claude Fable 5.1，激活可在本机搜索同名模型" [ref=e1240] [cursor=pointer]:
+        - generic [ref=e1241]:
+          - generic [ref=e1242]: "04"
+          - generic [ref=e1243]: Claude Fable 5.1
+          - generic [ref=e1244]: Anthropic
+        - 'generic "anthropic/claude-fable-5.1 厂商: Anthropic 智能指数: 53.4 代码指数: 81.6 Agent 指数: 57.9 Arena Elo: 1420 (spreadsheet) 上下文: 977K 价格: $10.00 / $50.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1245]':
+          - generic [ref=e1246]: 智能 53.4
+          - generic [ref=e1247]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1249]: 搜本机
+      - button "第 5 名 GPT-6 Astra，激活可在本机搜索同名模型" [ref=e1253] [cursor=pointer]:
+        - generic [ref=e1254]:
+          - generic [ref=e1255]: "05"
+          - generic [ref=e1256]: GPT-6 Astra
+          - generic [ref=e1257]: OpenAI
+        - 'generic "openai/gpt-6-astra 厂商: OpenAI 智能指数: 52.7 代码指数: 76.9 Agent 指数: 51 上下文: 1025K 价格: $10.00 / $50.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1258]':
+          - generic [ref=e1259]: 智能 52.7
+          - generic [ref=e1260]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1262]: 搜本机
+      - button "第 6 名 Gemini 4 Argon，激活可在本机搜索同名模型" [ref=e1266] [cursor=pointer]:
+        - generic [ref=e1267]:
+          - generic [ref=e1268]: "06"
+          - generic [ref=e1269]: Gemini 4 Argon
+          - generic [ref=e1270]: Google
+        - 'generic "google/gemini-4-argon 厂商: Google 智能指数: 52.6 Arena Elo: 1437 (blender3d) 上下文: 1024K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1271]':
+          - generic [ref=e1272]: 智能 52.6
+          - generic [ref=e1273]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1275]: 搜本机
+      - button "第 7 名 GPT-6.1 Sol，激活可在本机搜索同名模型" [ref=e1279] [cursor=pointer]:
+        - generic [ref=e1280]:
+          - generic [ref=e1281]: "07"
+          - generic [ref=e1282]: GPT-6.1 Sol
+          - generic [ref=e1283]: OpenAI
+        - 'generic "openai/gpt-6.1-sol 厂商: OpenAI 智能指数: 51.8 Arena Elo: 1430 (3d) 上下文: 1025K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1284]':
+          - generic [ref=e1285]: 智能 51.8
+          - generic [ref=e1286]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1288]: 搜本机
+      - button "第 8 名 Claude Opus 5，激活可在本机搜索同名模型" [ref=e1292] [cursor=pointer]:
+        - generic [ref=e1293]:
+          - generic [ref=e1294]: "08"
+          - generic [ref=e1295]: Claude Opus 5
+          - generic [ref=e1296]: Anthropic
+        - 'generic "anthropic/claude-opus-5 厂商: Anthropic 智能指数: 50.8 代码指数: 78 Agent 指数: 56.5 Arena Elo: 1355 (asciiart) 上下文: 977K 价格: $5.00 / $25.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1297]':
+          - generic [ref=e1298]: 智能 50.8
+          - generic [ref=e1299]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1301]: 搜本机
+      - button "第 9 名 Claude Fable 5，激活可在本机搜索同名模型" [ref=e1305] [cursor=pointer]:
+        - generic [ref=e1306]:
+          - generic [ref=e1307]: "09"
+          - generic [ref=e1308]: Claude Fable 5
+          - generic [ref=e1309]: Anthropic
+        - 'generic "anthropic/claude-fable-5 厂商: Anthropic 智能指数: 49.6 代码指数: 76.5 Agent 指数: 50.7 Arena Elo: 1335 (gamedev) 上下文: 977K 价格: $10.00 / $50.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1310]':
+          - generic [ref=e1311]: 智能 49.6
+          - generic [ref=e1312]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1314]: 搜本机
+      - button "第 10 名 Muse Spark 1.3，激活可在本机搜索同名模型" [ref=e1318] [cursor=pointer]:
+        - generic [ref=e1319]:
+          - generic [ref=e1320]: "10"
+          - generic [ref=e1321]: Muse Spark 1.3
+          - generic [ref=e1322]: Meta
+        - 'generic "meta/muse-spark-1.3 厂商: Meta 智能指数: 48.1 代码指数: 75.8 Agent 指数: 55.5 Arena Elo: 1393 (3d) 上下文: 1024K 价格: $1.25 / $4.25 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1323]':
+          - generic [ref=e1324]: 智能 48.1
+          - generic [ref=e1325]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1327]: 搜本机
+      - button "第 11 名 GPT-6 Sol，激活可在本机搜索同名模型" [ref=e1331] [cursor=pointer]:
+        - generic [ref=e1332]:
+          - generic [ref=e1333]: "11"
+          - generic [ref=e1334]: GPT-6 Sol
+          - generic [ref=e1335]: OpenAI
+        - 'generic "openai/gpt-6-sol 厂商: OpenAI 智能指数: 47.6 上下文: 1025K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1336]':
+          - generic [ref=e1337]: 智能 47.6
+          - generic [ref=e1338]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1340]: 搜本机
+      - button "第 12 名 GPT-5.6 Sol，激活可在本机搜索同名模型" [ref=e1344] [cursor=pointer]:
+        - generic [ref=e1345]:
+          - generic [ref=e1346]: "12"
+          - generic [ref=e1347]: GPT-5.6 Sol
+          - generic [ref=e1348]: OpenAI
+        - 'generic "openai/gpt-5.6-sol 厂商: OpenAI 智能指数: 47 代码指数: 77.4 Agent 指数: 50.2 上下文: 1025K 价格: $4.00 / $20.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1349]':
+          - generic [ref=e1350]: 智能 47
+          - generic [ref=e1351]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1353]: 搜本机
+      - button "第 13 名 Grok 4.7，激活可在本机搜索同名模型" [ref=e1357] [cursor=pointer]:
+        - generic [ref=e1358]:
+          - generic [ref=e1359]: "13"
+          - generic [ref=e1360]: Grok 4.7
+          - generic [ref=e1361]: SpaceXAI
+        - 'generic "x-ai/grok-4.7 厂商: SpaceXAI 智能指数: 46.4 Arena Elo: 1314 (gamedev) 上下文: 488K 价格: $2.00 / $6.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1362]':
+          - generic [ref=e1363]: 智能 46.4
+          - generic [ref=e1364]: 488K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1366]: 搜本机
+      - button "第 14 名 MiMo-V2.6-Pro，激活可在本机搜索同名模型" [ref=e1370] [cursor=pointer]:
+        - generic [ref=e1371]:
+          - generic [ref=e1372]: "14"
+          - generic [ref=e1373]: MiMo-V2.6-Pro
+          - generic [ref=e1374]: Xiaomi
+        - 'generic "xiaomi/mimo-v2.6-pro 厂商: Xiaomi 智能指数: 46.3 Arena Elo: 1337 (dataviz) 上下文: 1025K 价格: $0.43 / $0.87 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1375]':
+          - generic [ref=e1376]: 智能 46.3
+          - generic [ref=e1377]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1379]: 搜本机
+      - button "第 15 名 Qwen3.8 Max (0902)，激活可在本机搜索同名模型" [ref=e1383] [cursor=pointer]:
+        - generic [ref=e1384]:
+          - generic [ref=e1385]: "15"
+          - generic [ref=e1386]: Qwen3.8 Max (0902)
+          - generic [ref=e1387]: Qwen
+        - 'generic "qwen/qwen3.8-max-0902 厂商: Qwen 智能指数: 45.4 代码指数: 76.2 Agent 指数: 56 上下文: 977K 价格: $2.00 / $6.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1388]':
+          - generic [ref=e1389]: 智能 45.4
+          - generic [ref=e1390]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1392]: 搜本机
+      - button "第 16 名 GLM 5.3，激活可在本机搜索同名模型" [ref=e1396] [cursor=pointer]:
+        - generic [ref=e1397]:
+          - generic [ref=e1398]: "16"
+          - generic [ref=e1399]: GLM 5.3
+          - generic [ref=e1400]: Z.ai
+        - 'generic "z-ai/glm-5.3 厂商: Z.ai 智能指数: 44.8 代码指数: 74.8 Agent 指数: 53.1 Arena Elo: 1329 (3d) 上下文: 1024K 价格: $0.08 / $1.40 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1401]':
+          - generic [ref=e1402]: 智能 44.8
+          - generic [ref=e1403]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1405]: 搜本机
+      - button "第 17 名 Grok 4.6，激活可在本机搜索同名模型" [ref=e1409] [cursor=pointer]:
+        - generic [ref=e1410]:
+          - generic [ref=e1411]: "17"
+          - generic [ref=e1412]: Grok 4.6
+          - generic [ref=e1413]: SpaceXAI
+        - 'generic "x-ai/grok-4.6 厂商: SpaceXAI 智能指数: 44.3 代码指数: 76.8 Agent 指数: 53 Arena Elo: 1294 (androidnative) 上下文: 488K 价格: $2.00 / $6.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1414]':
+          - generic [ref=e1415]: 智能 44.3
+          - generic [ref=e1416]: 488K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1418]: 搜本机
+      - button "第 18 名 Step 5 Preview，激活可在本机搜索同名模型" [ref=e1422] [cursor=pointer]:
+        - generic [ref=e1423]:
+          - generic [ref=e1424]: "18"
+          - generic [ref=e1425]: Step 5 Preview
+          - generic [ref=e1426]: StepFun
+        - 'generic "stepfun/step-5-preview 厂商: StepFun 智能指数: 43.7 上下文: 1024K 价格: $1.00 / $2.70 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1427]':
+          - generic [ref=e1428]: 智能 43.7
+          - generic [ref=e1429]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1431]: 搜本机
+      - button "第 19 名 Kimi K3，激活可在本机搜索同名模型" [ref=e1435] [cursor=pointer]:
+        - generic [ref=e1436]:
+          - generic [ref=e1437]: "19"
+          - generic [ref=e1438]: Kimi K3
+          - generic [ref=e1439]: MoonshotAI
+        - 'generic "moonshotai/kimi-k3 厂商: MoonshotAI 智能指数: 43.6 代码指数: 76.2 Agent 指数: 50 Arena Elo: 1384 (3d) 上下文: 1024K 价格: $0.24 / $10.80 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1440]':
+          - generic [ref=e1441]: 智能 43.6
+          - generic [ref=e1442]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1444]: 搜本机
+      - button "第 20 名 Claude Haiku 5.5，激活可在本机搜索同名模型" [ref=e1448] [cursor=pointer]:
+        - generic [ref=e1449]:
+          - generic [ref=e1450]: "20"
+          - generic [ref=e1451]: Claude Haiku 5.5
+          - generic [ref=e1452]: Anthropic
+        - 'generic "anthropic/claude-haiku-5.5 厂商: Anthropic 智能指数: 43.4 Arena Elo: 1337 (3d) 上下文: 977K 价格: $0.10 / $0.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1453]':
+          - generic [ref=e1454]: 智能 43.4
+          - generic [ref=e1455]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1457]: 搜本机
+      - button "第 21 名 MiniMax M3.1 Flash，激活可在本机搜索同名模型" [ref=e1461] [cursor=pointer]:
+        - generic [ref=e1462]:
+          - generic [ref=e1463]: "21"
+          - generic [ref=e1464]: MiniMax M3.1 Flash
+          - generic [ref=e1465]: MiniMax
+        - 'generic "minimax/minimax-m3.1-flash 厂商: MiniMax 智能指数: 42.7 上下文: 1024K 价格: $0.15 / $0.60 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1466]':
+          - generic [ref=e1467]: 智能 42.7
+          - generic [ref=e1468]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1470]: 搜本机
+      - button "第 22 名 GPT-5.6 Terra，激活可在本机搜索同名模型" [ref=e1474] [cursor=pointer]:
+        - generic [ref=e1475]:
+          - generic [ref=e1476]: "22"
+          - generic [ref=e1477]: GPT-5.6 Terra
+          - generic [ref=e1478]: OpenAI
+        - 'generic "openai/gpt-5.6-terra 厂商: OpenAI 智能指数: 42.1 代码指数: 76.7 Agent 指数: 43.2 上下文: 1025K 价格: $2.00 / $12.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1479]':
+          - generic [ref=e1480]: 智能 42.1
+          - generic [ref=e1481]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1483]: 搜本机
+      - button "第 23 名 Claude Opus 4.8，激活可在本机搜索同名模型" [ref=e1487] [cursor=pointer]:
+        - generic [ref=e1488]:
+          - generic [ref=e1489]: "23"
+          - generic [ref=e1490]: Claude Opus 4.8
+          - generic [ref=e1491]: Anthropic
+        - 'generic "anthropic/claude-opus-4.8 厂商: Anthropic 智能指数: 41.8 代码指数: 74.3 Agent 指数: 41.9 Arena Elo: 1310 (agenticslides(python-pptx)) 上下文: 977K 价格: $5.00 / $25.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1492]':
+          - generic [ref=e1493]: 智能 41.8
+          - generic [ref=e1494]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1496]: 搜本机
+      - button "第 24 名 GLM 5.3 Flash，激活可在本机搜索同名模型" [ref=e1500] [cursor=pointer]:
+        - generic [ref=e1501]:
+          - generic [ref=e1502]: "24"
+          - generic [ref=e1503]: GLM 5.3 Flash
+          - generic [ref=e1504]: Z.ai
+        - 'generic "z-ai/glm-5.3-flash 厂商: Z.ai 智能指数: 41.8 代码指数: 71.5 Agent 指数: 50.9 Arena Elo: 1313 (3d) 上下文: 1024K 价格: $0.15 / $0.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1505]':
+          - generic [ref=e1506]: 智能 41.8
+          - generic [ref=e1507]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1509]: 搜本机
+      - button "第 25 名 Ling 3.1 Flash，激活可在本机搜索同名模型" [ref=e1513] [cursor=pointer]:
+        - generic [ref=e1514]:
+          - generic [ref=e1515]: "25"
+          - generic [ref=e1516]: Ling 3.1 Flash
+          - generic [ref=e1517]: inclusionAI
+        - 'generic "inclusionai/ling-3.1-flash 厂商: inclusionAI 智能指数: 41.1 上下文: 256K 价格: $0.07 / $0.22 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1518]':
+          - generic [ref=e1519]: 智能 41.1
+          - generic [ref=e1520]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1522]: 搜本机
+      - button "第 26 名 Gemini 3.8 Flash，激活可在本机搜索同名模型" [ref=e1526] [cursor=pointer]:
+        - generic [ref=e1527]:
+          - generic [ref=e1528]: "26"
+          - generic [ref=e1529]: Gemini 3.8 Flash
+          - generic [ref=e1530]: Google
+        - 'generic "google/gemini-3.8-flash 厂商: Google 智能指数: 40.9 代码指数: 76.3 Agent 指数: 40.2 Arena Elo: 1313 (uicomponent) 上下文: 1024K 价格: $0.83 / $4.13 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1531]':
+          - generic [ref=e1532]: 智能 40.9
+          - generic [ref=e1533]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1535]: 搜本机
+      - button "第 27 名 Claude Opus 4.7，激活可在本机搜索同名模型" [ref=e1539] [cursor=pointer]:
+        - generic [ref=e1540]:
+          - generic [ref=e1541]: "27"
+          - generic [ref=e1542]: Claude Opus 4.7
+          - generic [ref=e1543]: Anthropic
+        - 'generic "anthropic/claude-opus-4.7 厂商: Anthropic 智能指数: 40.7 代码指数: 73.6 Agent 指数: 38.6 上下文: 977K 价格: $5.00 / $25.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1544]':
+          - generic [ref=e1545]: 智能 40.7
+          - generic [ref=e1546]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1548]: 搜本机
+      - button "第 28 名 Qwen3.8 2.4T A95B，激活可在本机搜索同名模型" [ref=e1552] [cursor=pointer]:
+        - generic [ref=e1553]:
+          - generic [ref=e1554]: "28"
+          - generic [ref=e1555]: Qwen3.8 2.4T A95B
+          - generic [ref=e1556]: Qwen
+        - 'generic "qwen/qwen3.8-2.4t-a95b 厂商: Qwen 智能指数: 39.9 代码指数: 71.9 Agent 指数: 50.1 上下文: 1024K 价格: $2.00 / $6.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1557]':
+          - generic [ref=e1558]: 智能 39.9
+          - generic [ref=e1559]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1561]: 搜本机
+      - button "第 29 名 Muse Spark 1.2，激活可在本机搜索同名模型" [ref=e1565] [cursor=pointer]:
+        - generic [ref=e1566]:
+          - generic [ref=e1567]: "29"
+          - generic [ref=e1568]: Muse Spark 1.2
+          - generic [ref=e1569]: Meta
+        - 'generic "meta/muse-spark-1.2 厂商: Meta 智能指数: 39.6 代码指数: 72.2 Agent 指数: 43.2 Arena Elo: 1333 (dataviz) 上下文: 1024K 价格: $1.25 / $4.25 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1570]':
+          - generic [ref=e1571]: 智能 39.6
+          - generic [ref=e1572]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1574]: 搜本机
+      - button "第 30 名 Gemini 3.7 Flash，激活可在本机搜索同名模型" [ref=e1578] [cursor=pointer]:
+        - generic [ref=e1579]:
+          - generic [ref=e1580]: "30"
+          - generic [ref=e1581]: Gemini 3.7 Flash
+          - generic [ref=e1582]: Google
+        - 'generic "google/gemini-3.7-flash 厂商: Google 智能指数: 39.6 代码指数: 71.5 Arena Elo: 1318 (gamedev) 上下文: 1024K 价格: $0.75 / $3.75 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1583]':
+          - generic [ref=e1584]: 智能 39.6
+          - generic [ref=e1585]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1587]: 搜本机
+      - button "第 31 名 DeepSeek V4.1 Flash 1017，激活可在本机搜索同名模型" [ref=e1591] [cursor=pointer]:
+        - generic [ref=e1592]:
+          - generic [ref=e1593]: "31"
+          - generic [ref=e1594]: DeepSeek V4.1 Flash 1017
+          - generic [ref=e1595]: DeepSeek
+        - 'generic "deepseek/deepseek-v4.1-flash-1017 厂商: DeepSeek 智能指数: 39.5 Arena Elo: 1347 (3d) 上下文: 1024K 价格: $0.15 / $0.60 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1596]':
+          - generic [ref=e1597]: 智能 39.5
+          - generic [ref=e1598]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1600]: 搜本机
+      - button "第 32 名 GPT-5.4，激活可在本机搜索同名模型" [ref=e1604] [cursor=pointer]:
+        - generic [ref=e1605]:
+          - generic [ref=e1606]: "32"
+          - generic [ref=e1607]: GPT-5.4
+          - generic [ref=e1608]: OpenAI
+        - 'generic "openai/gpt-5.4 厂商: OpenAI 智能指数: 39 代码指数: 71.1 Arena Elo: 1239 (gamedev) 上下文: 1025K 价格: $2.50 / $15.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1609]':
+          - generic [ref=e1610]: 智能 39
+          - generic [ref=e1611]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1613]: 搜本机
+      - button "第 33 名 Grok 4.5，激活可在本机搜索同名模型" [ref=e1617] [cursor=pointer]:
+        - generic [ref=e1618]:
+          - generic [ref=e1619]: "33"
+          - generic [ref=e1620]: Grok 4.5
+          - generic [ref=e1621]: SpaceXAI
+        - 'generic "x-ai/grok-4.5 厂商: SpaceXAI 智能指数: 38.8 代码指数: 72.4 Agent 指数: 41.2 Arena Elo: 1279 (website) 上下文: 488K 价格: $2.00 / $6.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1622]':
+          - generic [ref=e1623]: 智能 38.8
+          - generic [ref=e1624]: 488K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1626]: 搜本机
+      - button "第 34 名 GPT-5.5，激活可在本机搜索同名模型" [ref=e1630] [cursor=pointer]:
+        - generic [ref=e1631]:
+          - generic [ref=e1632]: "34"
+          - generic [ref=e1633]: GPT-5.5
+          - generic [ref=e1634]: OpenAI
+        - 'generic "openai/gpt-5.5 厂商: OpenAI 智能指数: 38.4 代码指数: 74.9 Agent 指数: 36.4 Arena Elo: 1292 (gamedev) 上下文: 1025K 价格: $5.00 / $30.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1635]':
+          - generic [ref=e1636]: 智能 38.4
+          - generic [ref=e1637]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1639]: 搜本机
+      - button "第 35 名 Mistral Large 4，激活可在本机搜索同名模型" [ref=e1643] [cursor=pointer]:
+        - generic [ref=e1644]:
+          - generic [ref=e1645]: "35"
+          - generic [ref=e1646]: Mistral Large 4
+          - generic [ref=e1647]: Mistral
+        - 'generic "mistralai/mistral-large-4-0 厂商: Mistral 智能指数: 38.4 Arena Elo: 1275 (dataviz) 上下文: 1024K 价格: $1.36 / $4.18 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1648]':
+          - generic [ref=e1649]: 智能 38.4
+          - generic [ref=e1650]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1652]: 搜本机
+      - button "第 36 名 Claude Sonnet 5，激活可在本机搜索同名模型" [ref=e1656] [cursor=pointer]:
+        - generic [ref=e1657]:
+          - generic [ref=e1658]: "36"
+          - generic [ref=e1659]: Claude Sonnet 5
+          - generic [ref=e1660]: Anthropic
+        - 'generic "anthropic/claude-sonnet-5 厂商: Anthropic 智能指数: 38.2 代码指数: 71.5 Agent 指数: 43.6 Arena Elo: 1275 (codecategories) 上下文: 977K 价格: $2.00 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1661]':
+          - generic [ref=e1662]: 智能 38.2
+          - generic [ref=e1663]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1665]: 搜本机
+      - button "第 37 名 GPT-6 Luna，激活可在本机搜索同名模型" [ref=e1669] [cursor=pointer]:
+        - generic [ref=e1670]:
+          - generic [ref=e1671]: "37"
+          - generic [ref=e1672]: GPT-6 Luna
+          - generic [ref=e1673]: OpenAI
+        - 'generic "openai/gpt-6-luna 厂商: OpenAI 智能指数: 38.1 上下文: 1025K 价格: $0.10 / $0.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1674]':
+          - generic [ref=e1675]: 智能 38.1
+          - generic [ref=e1676]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1678]: 搜本机
+      - button "第 38 名 MiMo-V2.6-Flash，激活可在本机搜索同名模型" [ref=e1682] [cursor=pointer]:
+        - generic [ref=e1683]:
+          - generic [ref=e1684]: "38"
+          - generic [ref=e1685]: MiMo-V2.6-Flash
+          - generic [ref=e1686]: Xiaomi
+        - 'generic "xiaomi/mimo-v2.6-flash 厂商: Xiaomi 智能指数: 37.9 上下文: 1025K 价格: $0.14 / $0.28 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1687]':
+          - generic [ref=e1688]: 智能 37.9
+          - generic [ref=e1689]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1691]: 搜本机
+      - button "第 39 名 GPT-5.6 Luna，激活可在本机搜索同名模型" [ref=e1695] [cursor=pointer]:
+        - generic [ref=e1696]:
+          - generic [ref=e1697]: "39"
+          - generic [ref=e1698]: GPT-5.6 Luna
+          - generic [ref=e1699]: OpenAI
+        - 'generic "openai/gpt-5.6-luna 厂商: OpenAI 智能指数: 37.3 代码指数: 71.4 Agent 指数: 42.1 上下文: 1025K 价格: $0.20 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1700]':
+          - generic [ref=e1701]: 智能 37.3
+          - generic [ref=e1702]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1704]: 搜本机
+      - button "第 40 名 DeepSeek V4 Pro 0813，激活可在本机搜索同名模型" [ref=e1708] [cursor=pointer]:
+        - generic [ref=e1709]:
+          - generic [ref=e1710]: "40"
+          - generic [ref=e1711]: DeepSeek V4 Pro 0813
+          - generic [ref=e1712]: DeepSeek
+        - 'generic "deepseek/deepseek-v4-pro-0813 厂商: DeepSeek 智能指数: 36 代码指数: 68.8 Agent 指数: 41.3 上下文: 1024K 价格: $0.66 / $1.98 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1713]':
+          - generic [ref=e1714]: 智能 36
+          - generic [ref=e1715]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1717]: 搜本机
+      - button "第 41 名 DeepSeek V4 Flash Vision Exp，激活可在本机搜索同名模型" [ref=e1721] [cursor=pointer]:
+        - generic [ref=e1722]:
+          - generic [ref=e1723]: "41"
+          - generic [ref=e1724]: DeepSeek V4 Flash Vision Exp
+          - generic [ref=e1725]: DeepSeek
+        - 'generic "deepseek/deepseek-v4-flash-vision-exp 厂商: DeepSeek 智能指数: 34.8 代码指数: 65 Agent 指数: 47.5 上下文: 1024K 价格: $0.22 / $0.65 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1726]':
+          - generic [ref=e1727]: 智能 34.8
+          - generic [ref=e1728]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1730]: 搜本机
+      - button "第 42 名 DeepSeek V4 Flash 0731，激活可在本机搜索同名模型" [ref=e1734] [cursor=pointer]:
+        - generic [ref=e1735]:
+          - generic [ref=e1736]: "42"
+          - generic [ref=e1737]: DeepSeek V4 Flash 0731
+          - generic [ref=e1738]: DeepSeek
+        - 'generic "deepseek/deepseek-v4-flash-0731 厂商: DeepSeek 智能指数: 34.3 代码指数: 69.1 Agent 指数: 41 Arena Elo: 1236 (website) 上下文: 1024K 价格: $0.04 / $0.13 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1739]':
+          - generic [ref=e1740]: 智能 34.3
+          - generic [ref=e1741]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1743]: 搜本机
+      - button "第 43 名 Gemini 3.6 Flash，激活可在本机搜索同名模型" [ref=e1747] [cursor=pointer]:
+        - generic [ref=e1748]:
+          - generic [ref=e1749]: "43"
+          - generic [ref=e1750]: Gemini 3.6 Flash
+          - generic [ref=e1751]: Google
+        - 'generic "google/gemini-3.6-flash 厂商: Google 智能指数: 34 代码指数: 69.2 Agent 指数: 29 Arena Elo: 1299 (website) 上下文: 1024K 价格: $0.75 / $3.75 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1752]':
+          - generic [ref=e1753]: 智能 34
+          - generic [ref=e1754]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1756]: 搜本机
+      - button "第 44 名 Muse Spark 1.1，激活可在本机搜索同名模型" [ref=e1760] [cursor=pointer]:
+        - generic [ref=e1761]:
+          - generic [ref=e1762]: "44"
+          - generic [ref=e1763]: Muse Spark 1.1
+          - generic [ref=e1764]: Meta
+        - 'generic "meta/muse-spark-1.1 厂商: Meta 智能指数: 33.7 代码指数: 71.3 Agent 指数: 25.8 Arena Elo: 1283 (uicomponent) 上下文: 1024K 价格: $1.25 / $4.25 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1765]':
+          - generic [ref=e1766]: 智能 33.7
+          - generic [ref=e1767]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1769]: 搜本机
+      - button "第 45 名 GLM 5.2，激活可在本机搜索同名模型" [ref=e1773] [cursor=pointer]:
+        - generic [ref=e1774]:
+          - generic [ref=e1775]: "45"
+          - generic [ref=e1776]: GLM 5.2
+          - generic [ref=e1777]: Z.ai
+        - 'generic "z-ai/glm-5.2 厂商: Z.ai 智能指数: 33.7 代码指数: 68.8 Agent 指数: 38.4 Arena Elo: 1291 (uicomponent) 上下文: 1024K 价格: $0.03 / $7.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1778]':
+          - generic [ref=e1779]: 智能 33.7
+          - generic [ref=e1780]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1782]: 搜本机
+      - button "第 46 名 Qwen3.8 27B，激活可在本机搜索同名模型" [ref=e1786] [cursor=pointer]:
+        - generic [ref=e1787]:
+          - generic [ref=e1788]: "46"
+          - generic [ref=e1789]: Qwen3.8 27B
+          - generic [ref=e1790]: Qwen
+        - 'generic "qwen/qwen3.8-27b 厂商: Qwen 智能指数: 33.7 代码指数: 68.1 Agent 指数: 45.8 上下文: 977K 价格: $0.20 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1791]':
+          - generic [ref=e1792]: 智能 33.7
+          - generic [ref=e1793]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1795]: 搜本机
+      - button "第 47 名 Gemini 3.5 Flash，激活可在本机搜索同名模型" [ref=e1799] [cursor=pointer]:
+        - generic [ref=e1800]:
+          - generic [ref=e1801]: "47"
+          - generic [ref=e1802]: Gemini 3.5 Flash
+          - generic [ref=e1803]: Google
+        - 'generic "google/gemini-3.5-flash 厂商: Google 智能指数: 33.6 Arena Elo: 1267 (uicomponent) 上下文: 1024K 价格: $1.50 / $9.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1804]':
+          - generic [ref=e1805]: 智能 33.6
+          - generic [ref=e1806]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1808]: 搜本机
+      - button "第 48 名 GPT-5.3-Codex，激活可在本机搜索同名模型" [ref=e1812] [cursor=pointer]:
+        - generic [ref=e1813]:
+          - generic [ref=e1814]: "48"
+          - generic [ref=e1815]: GPT-5.3-Codex
+          - generic [ref=e1816]: OpenAI
+        - 'generic "openai/gpt-5.3-codex 厂商: OpenAI 智能指数: 32.5 Arena Elo: 1164 (dataviz) 上下文: 391K 价格: $1.75 / $14.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1817]':
+          - generic [ref=e1818]: 智能 32.5
+          - generic [ref=e1819]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1821]: 搜本机
+      - button "第 49 名 Claude Opus 4.6，激活可在本机搜索同名模型" [ref=e1825] [cursor=pointer]:
+        - generic [ref=e1826]:
+          - generic [ref=e1827]: "49"
+          - generic [ref=e1828]: Claude Opus 4.6
+          - generic [ref=e1829]: Anthropic
+        - 'generic "anthropic/claude-opus-4.6 厂商: Anthropic 智能指数: 31.9 Arena Elo: 1289 (website) 上下文: 977K 价格: $5.00 / $25.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1830]':
+          - generic [ref=e1831]: 智能 31.9
+          - generic [ref=e1832]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1834]: 搜本机
+      - button "第 50 名 DeepSeek V4 Pro 0423，激活可在本机搜索同名模型" [ref=e1838] [cursor=pointer]:
+        - generic [ref=e1839]:
+          - generic [ref=e1840]: "50"
+          - generic [ref=e1841]: DeepSeek V4 Pro 0423
+          - generic [ref=e1842]: DeepSeek
+        - 'generic "deepseek/deepseek-v4-pro 厂商: DeepSeek 智能指数: 30.4 代码指数: 59.4 Agent 指数: 26.3 Arena Elo: 1251 (3d) 上下文: 1024K 价格: $0.21 / $0.42 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1843]':
+          - generic [ref=e1844]: 智能 30.4
+          - generic [ref=e1845]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1847]: 搜本机
+      - button "第 51 名 GPT-5.2，激活可在本机搜索同名模型" [ref=e1851] [cursor=pointer]:
+        - generic [ref=e1852]:
+          - generic [ref=e1853]: "51"
+          - generic [ref=e1854]: GPT-5.2
+          - generic [ref=e1855]: OpenAI
+        - 'generic "openai/gpt-5.2 厂商: OpenAI 智能指数: 30.4 Arena Elo: 1202 (dataviz) 上下文: 391K 价格: $1.75 / $14.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1856]':
+          - generic [ref=e1857]: 智能 30.4
+          - generic [ref=e1858]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1860]: 搜本机
+      - button "第 52 名 Claude Sonnet 4.6，激活可在本机搜索同名模型" [ref=e1864] [cursor=pointer]:
+        - generic [ref=e1865]:
+          - generic [ref=e1866]: "52"
+          - generic [ref=e1867]: Claude Sonnet 4.6
+          - generic [ref=e1868]: Anthropic
+        - 'generic "anthropic/claude-sonnet-4.6 厂商: Anthropic 智能指数: 30.1 代码指数: 63 Agent 指数: 31.8 Arena Elo: 1283 (website) 上下文: 977K 价格: $3.00 / $15.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1869]':
+          - generic [ref=e1870]: 智能 30.1
+          - generic [ref=e1871]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1873]: 搜本机
+      - button "第 53 名 Gemini 3.1 Pro Preview，激活可在本机搜索同名模型" [ref=e1877] [cursor=pointer]:
+        - generic [ref=e1878]:
+          - generic [ref=e1879]: "53"
+          - generic [ref=e1880]: Gemini 3.1 Pro Preview
+          - generic [ref=e1881]: Google
+        - 'generic "google/gemini-3.1-pro-preview 厂商: Google 智能指数: 29.7 代码指数: 68.8 Agent 指数: 8.2 Arena Elo: 1285 (svg) 上下文: 1024K 价格: $2.00 / $12.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1882]':
+          - generic [ref=e1883]: 智能 29.7
+          - generic [ref=e1884]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1886]: 搜本机
+      - button "第 54 名 Qwen3.7 Max，激活可在本机搜索同名模型" [ref=e1890] [cursor=pointer]:
+        - generic [ref=e1891]:
+          - generic [ref=e1892]: "54"
+          - generic [ref=e1893]: Qwen3.7 Max
+          - generic [ref=e1894]: Qwen
+        - 'generic "qwen/qwen3.7-max 厂商: Qwen 智能指数: 29.5 代码指数: 66 Agent 指数: 22.5 Arena Elo: 1276 (dataviz) 上下文: 977K 价格: $1.48 / $4.42 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1895]':
+          - generic [ref=e1896]: 智能 29.5
+          - generic [ref=e1897]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1899]: 搜本机
+      - button "第 55 名 MiniMax M3，激活可在本机搜索同名模型" [ref=e1903] [cursor=pointer]:
+        - generic [ref=e1904]:
+          - generic [ref=e1905]: "55"
+          - generic [ref=e1906]: MiniMax M3
+          - generic [ref=e1907]: MiniMax
+        - 'generic "minimax/minimax-m3 厂商: MiniMax 智能指数: 29.2 代码指数: 58.6 Agent 指数: 29.5 Arena Elo: 1255 (website) 上下文: 1024K 价格: $0.30 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1908]':
+          - generic [ref=e1909]: 智能 29.2
+          - generic [ref=e1910]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1912]: 搜本机
+      - button "第 56 名 Claude Opus 4.5，激活可在本机搜索同名模型" [ref=e1916] [cursor=pointer]:
+        - generic [ref=e1917]:
+          - generic [ref=e1918]: "56"
+          - generic [ref=e1919]: Claude Opus 4.5
+          - generic [ref=e1920]: Anthropic
+        - 'generic "anthropic/claude-opus-4.5 厂商: Anthropic 智能指数: 29.1 Arena Elo: 1245 (website) 上下文: 195K 价格: $5.00 / $25.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1921]':
+          - generic [ref=e1922]: 智能 29.1
+          - generic [ref=e1923]: 195K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1925]: 搜本机
+      - button "第 57 名 GPT-5.2-Codex，激活可在本机搜索同名模型" [ref=e1929] [cursor=pointer]:
+        - generic [ref=e1930]:
+          - generic [ref=e1931]: "57"
+          - generic [ref=e1932]: GPT-5.2-Codex
+          - generic [ref=e1933]: OpenAI
+        - 'generic "openai/gpt-5.2-codex 厂商: OpenAI 智能指数: 28.5 Arena Elo: 1176 (androidnative) 上下文: 391K 价格: $1.75 / $14.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1934]':
+          - generic [ref=e1935]: 智能 28.5
+          - generic [ref=e1936]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1938]: 搜本机
+      - button "第 58 名 Solar Pro 4，激活可在本机搜索同名模型" [ref=e1942] [cursor=pointer]:
+        - generic [ref=e1943]:
+          - generic [ref=e1944]: "58"
+          - generic [ref=e1945]: Solar Pro 4
+          - generic [ref=e1946]: Upstage
+        - 'generic "upstage/solar-pro4 厂商: Upstage 智能指数: 28.2 代码指数: 52.7 Arena Elo: 1182 (codecategories) 上下文: 512K 价格: $0.15 / $0.60 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1947]':
+          - generic [ref=e1948]: 智能 28.2
+          - generic [ref=e1949]: 512K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1951]: 搜本机
+      - button "第 59 名 GLM 5，激活可在本机搜索同名模型" [ref=e1955] [cursor=pointer]:
+        - generic [ref=e1956]:
+          - generic [ref=e1957]: "59"
+          - generic [ref=e1958]: GLM 5
+          - generic [ref=e1959]: Z.ai
+        - 'generic "z-ai/glm-5 厂商: Z.ai 智能指数: 27.9 Arena Elo: 1247 (website) 上下文: 200K 价格: $1.00 / $3.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1960]':
+          - generic [ref=e1961]: 智能 27.9
+          - generic [ref=e1962]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1964]: 搜本机
+      - button "第 60 名 Grok Build 0.1，激活可在本机搜索同名模型" [ref=e1968] [cursor=pointer]:
+        - generic [ref=e1969]:
+          - generic [ref=e1970]: "60"
+          - generic [ref=e1971]: Grok Build 0.1
+          - generic [ref=e1972]: SpaceXAI
+        - 'generic "x-ai/grok-build-0.1 厂商: SpaceXAI 智能指数: 27.2 代码指数: 51.5 上下文: 250K 价格: $1.00 / $2.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1973]':
+          - generic [ref=e1974]: 智能 27.2
+          - generic [ref=e1975]: 250K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1977]: 搜本机
+      - button "第 61 名 Kimi K2.6，激活可在本机搜索同名模型" [ref=e1981] [cursor=pointer]:
+        - generic [ref=e1982]:
+          - generic [ref=e1983]: "61"
+          - generic [ref=e1984]: Kimi K2.6
+          - generic [ref=e1985]: MoonshotAI
+        - 'generic "moonshotai/kimi-k2.6 厂商: MoonshotAI 智能指数: 27 代码指数: 61.8 Agent 指数: 20.5 Arena Elo: 1276 (spreadsheet) 上下文: 256K 价格: $0.65 / $3.41 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1986]':
+          - generic [ref=e1987]: 智能 27
+          - generic [ref=e1988]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e1990]: 搜本机
+      - button "第 62 名 Qwen3.6 Plus，激活可在本机搜索同名模型" [ref=e1994] [cursor=pointer]:
+        - generic [ref=e1995]:
+          - generic [ref=e1996]: "62"
+          - generic [ref=e1997]: Qwen3.6 Plus
+          - generic [ref=e1998]: Qwen
+        - 'generic "qwen/qwen3.6-plus 厂商: Qwen 智能指数: 27 代码指数: 54.5 Arena Elo: 1242 (website) 上下文: 977K 价格: $0.33 / $1.95 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e1999]':
+          - generic [ref=e2000]: 智能 27
+          - generic [ref=e2001]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2003]: 搜本机
+      - button "第 63 名 GLM 5 Turbo，激活可在本机搜索同名模型" [ref=e2007] [cursor=pointer]:
+        - generic [ref=e2008]:
+          - generic [ref=e2009]: "63"
+          - generic [ref=e2010]: GLM 5 Turbo
+          - generic [ref=e2011]: Z.ai
+        - 'generic "z-ai/glm-5-turbo 厂商: Z.ai 智能指数: 26.6 Arena Elo: 1263 (dataviz) 上下文: 198K 价格: $1.20 / $4.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2012]':
+          - generic [ref=e2013]: 智能 26.6
+          - generic [ref=e2014]: 198K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2016]: 搜本机
+      - button "第 64 名 Nemotron 3.5 Super VL，激活可在本机搜索同名模型" [ref=e2020] [cursor=pointer]:
+        - generic [ref=e2021]:
+          - generic [ref=e2022]: "64"
+          - generic [ref=e2023]: Nemotron 3.5 Super VL
+          - generic [ref=e2024]: NVIDIA
+        - 'generic "nvidia/nemotron-3.5-super-vl 厂商: NVIDIA 智能指数: 26.5 Arena Elo: 1169 (website) 上下文: 1024K 价格: $0.15 / $0.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2025]':
+          - generic [ref=e2026]: 智能 26.5
+          - generic [ref=e2027]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2029]: 搜本机
+      - button "第 65 名 Gemini 3 Flash Preview，激活可在本机搜索同名模型" [ref=e2033] [cursor=pointer]:
+        - generic [ref=e2034]:
+          - generic [ref=e2035]: "65"
+          - generic [ref=e2036]: Gemini 3 Flash Preview
+          - generic [ref=e2037]: Google
+        - 'generic "google/gemini-3-flash-preview 厂商: Google 智能指数: 26.3 Arena Elo: 1196 (website) 上下文: 1024K 价格: $0.50 / $3.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2038]':
+          - generic [ref=e2039]: 智能 26.3
+          - generic [ref=e2040]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2042]: 搜本机
+      - button "第 66 名 GLM 5.1，激活可在本机搜索同名模型" [ref=e2046] [cursor=pointer]:
+        - generic [ref=e2047]:
+          - generic [ref=e2048]: "66"
+          - generic [ref=e2049]: GLM 5.1
+          - generic [ref=e2050]: Z.ai
+        - 'generic "z-ai/glm-5.1 厂商: Z.ai 智能指数: 26.1 代码指数: 55.8 Agent 指数: 23.9 Arena Elo: 1366 (dataviz) 上下文: 200K 价格: $1.40 / $4.40 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2051]':
+          - generic [ref=e2052]: 智能 26.1
+          - generic [ref=e2053]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2055]: 搜本机
+      - button "第 67 名 MiMo-V2.5-Pro，激活可在本机搜索同名模型" [ref=e2059] [cursor=pointer]:
+        - generic [ref=e2060]:
+          - generic [ref=e2061]: "67"
+          - generic [ref=e2062]: MiMo-V2.5-Pro
+          - generic [ref=e2063]: Xiaomi
+        - 'generic "xiaomi/mimo-v2.5-pro 厂商: Xiaomi 智能指数: 26 代码指数: 60.2 Agent 指数: 21.3 Arena Elo: 1266 (website) 上下文: 1025K 价格: $0.30 / $0.61 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2064]':
+          - generic [ref=e2065]: 智能 26
+          - generic [ref=e2066]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2068]: 搜本机
+      - button "第 68 名 Kimi K2.7 Code，激活可在本机搜索同名模型" [ref=e2072] [cursor=pointer]:
+        - generic [ref=e2073]:
+          - generic [ref=e2074]: "68"
+          - generic [ref=e2075]: Kimi K2.7 Code
+          - generic [ref=e2076]: MoonshotAI
+        - 'generic "moonshotai/kimi-k2.7-code 厂商: MoonshotAI 智能指数: 25.8 代码指数: 60.8 Agent 指数: 21 Arena Elo: 1262 (website) 上下文: 256K 价格: $0.67 / $3.35 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2077]':
+          - generic [ref=e2078]: 智能 25.8
+          - generic [ref=e2079]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2081]: 搜本机
+      - button "第 69 名 Inkling Small，激活可在本机搜索同名模型" [ref=e2085] [cursor=pointer]:
+        - generic [ref=e2086]:
+          - generic [ref=e2087]: "69"
+          - generic [ref=e2088]: Inkling Small
+          - generic [ref=e2089]: Thinking Machines
+        - 'generic "thinkingmachines/inkling-small 厂商: Thinking Machines 智能指数: 25.7 代码指数: 52.9 Agent 指数: 23.5 上下文: 512K 价格: $0.45 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2090]':
+          - generic [ref=e2091]: 智能 25.7
+          - generic [ref=e2092]: 512K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2094]: 搜本机
+      - button "第 70 名 Grok 4.20，激活可在本机搜索同名模型" [ref=e2098] [cursor=pointer]:
+        - generic [ref=e2099]:
+          - generic [ref=e2100]: "70"
+          - generic [ref=e2101]: Grok 4.20
+          - generic [ref=e2102]: SpaceXAI
+        - 'generic "x-ai/grok-4.20 厂商: SpaceXAI 智能指数: 25.7 Arena Elo: 1228 (website) 上下文: 1953K 价格: $1.25 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2103]':
+          - generic [ref=e2104]: 智能 25.7
+          - generic [ref=e2105]: 1953K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2107]: 搜本机
+      - button "第 71 名 Hy3 preview，激活可在本机搜索同名模型" [ref=e2111] [cursor=pointer]:
+        - generic [ref=e2112]:
+          - generic [ref=e2113]: "71"
+          - generic [ref=e2114]: Hy3 preview
+          - generic [ref=e2115]: Tencent
+        - 'generic "tencent/hy3-preview 厂商: Tencent 智能指数: 25.3 代码指数: 58.8 Agent 指数: 24.1 上下文: 256K 价格: $0.18 / $0.60 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2116]':
+          - generic [ref=e2117]: 智能 25.3
+          - generic [ref=e2118]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2120]: 搜本机
+      - button "第 72 名 Qwen3.7 Plus，激活可在本机搜索同名模型" [ref=e2124] [cursor=pointer]:
+        - generic [ref=e2125]:
+          - generic [ref=e2126]: "72"
+          - generic [ref=e2127]: Qwen3.7 Plus
+          - generic [ref=e2128]: Qwen
+        - 'generic "qwen/qwen3.7-plus 厂商: Qwen 智能指数: 25.2 代码指数: 55.9 Agent 指数: 17.5 Arena Elo: 1278 (dataviz) 上下文: 977K 价格: $0.32 / $1.28 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2129]':
+          - generic [ref=e2130]: 智能 25.2
+          - generic [ref=e2131]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2133]: 搜本机
+      - button "第 73 名 Inkling，激活可在本机搜索同名模型" [ref=e2137] [cursor=pointer]:
+        - generic [ref=e2138]:
+          - generic [ref=e2139]: "73"
+          - generic [ref=e2140]: Inkling
+          - generic [ref=e2141]: Thinking Machines
+        - 'generic "thinkingmachines/inkling 厂商: Thinking Machines 智能指数: 25 代码指数: 52.1 Agent 指数: 22.5 Arena Elo: 1223 (website) 上下文: 512K 价格: $1.00 / $4.05 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2142]':
+          - generic [ref=e2143]: 智能 25
+          - generic [ref=e2144]: 512K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2146]: 搜本机
+      - button "第 74 名 Grok 4.3，激活可在本机搜索同名模型" [ref=e2150] [cursor=pointer]:
+        - generic [ref=e2151]:
+          - generic [ref=e2152]: "74"
+          - generic [ref=e2153]: Grok 4.3
+          - generic [ref=e2154]: SpaceXAI
+        - 'generic "x-ai/grok-4.3 厂商: SpaceXAI 智能指数: 24.9 代码指数: 42.2 Agent 指数: 15.5 Arena Elo: 1195 (website) 上下文: 977K 价格: $1.25 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2155]':
+          - generic [ref=e2156]: 智能 24.9
+          - generic [ref=e2157]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2159]: 搜本机
+      - button "第 75 名 GPT-5.1，激活可在本机搜索同名模型" [ref=e2163] [cursor=pointer]:
+        - generic [ref=e2164]:
+          - generic [ref=e2165]: "75"
+          - generic [ref=e2166]: GPT-5.1
+          - generic [ref=e2167]: OpenAI
+        - 'generic "openai/gpt-5.1 厂商: OpenAI 智能指数: 24.7 代码指数: 49.4 Arena Elo: 1204 (dataviz) 上下文: 391K 价格: $1.25 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2168]':
+          - generic [ref=e2169]: 智能 24.7
+          - generic [ref=e2170]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2172]: 搜本机
+      - button "第 76 名 DeepSeek V4.1 Flash，激活可在本机搜索同名模型" [ref=e2176] [cursor=pointer]:
+        - generic [ref=e2177]:
+          - generic [ref=e2178]: "76"
+          - generic [ref=e2179]: DeepSeek V4.1 Flash
+          - generic [ref=e2180]: DeepSeek
+        - 'generic "deepseek/deepseek-v4.1-flash 厂商: DeepSeek 智能指数: 24.7 上下文: 1024K 价格: $0.02 / $1.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2181]':
+          - generic [ref=e2182]: 智能 24.7
+          - generic [ref=e2183]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2185]: 搜本机
+      - button "第 77 名 Ling 3.0 Flash VL，激活可在本机搜索同名模型" [ref=e2189] [cursor=pointer]:
+        - generic [ref=e2190]:
+          - generic [ref=e2191]: "77"
+          - generic [ref=e2192]: Ling 3.0 Flash VL
+          - generic [ref=e2193]: inclusionAI
+        - 'generic "inclusionai/ling-3.0-flash-vl 厂商: inclusionAI 智能指数: 24.6 代码指数: 57 Agent 指数: 28.7 上下文: 128K 价格: $0.06 / $0.18 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2194]':
+          - generic [ref=e2195]: 智能 24.6
+          - generic [ref=e2196]: 128K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2198]: 搜本机
+      - button "第 78 名 DeepSeek V4 Flash 0423，激活可在本机搜索同名模型" [ref=e2202] [cursor=pointer]:
+        - generic [ref=e2203]:
+          - generic [ref=e2204]: "78"
+          - generic [ref=e2205]: DeepSeek V4 Flash 0423
+          - generic [ref=e2206]: DeepSeek
+        - 'generic "deepseek/deepseek-v4-flash 厂商: DeepSeek 智能指数: 24.4 代码指数: 52 Agent 指数: 26.3 Arena Elo: 1206 (website) 上下文: 1024K 价格: $0.09 / $0.18 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2207]':
+          - generic [ref=e2208]: 智能 24.4
+          - generic [ref=e2209]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2211]: 搜本机
+      - button "第 79 名 GPT-5.4 Mini，激活可在本机搜索同名模型" [ref=e2215] [cursor=pointer]:
+        - generic [ref=e2216]:
+          - generic [ref=e2217]: "79"
+          - generic [ref=e2218]: GPT-5.4 Mini
+          - generic [ref=e2219]: OpenAI
+        - 'generic "openai/gpt-5.4-mini 厂商: OpenAI 智能指数: 24.1 代码指数: 56.1 Agent 指数: 17.9 上下文: 391K 价格: $0.75 / $4.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2220]':
+          - generic [ref=e2221]: 智能 24.1
+          - generic [ref=e2222]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2224]: 搜本机
+      - button "第 80 名 Solar Mini 4，激活可在本机搜索同名模型" [ref=e2228] [cursor=pointer]:
+        - generic [ref=e2229]:
+          - generic [ref=e2230]: "80"
+          - generic [ref=e2231]: Solar Mini 4
+          - generic [ref=e2232]: Upstage
+        - 'generic "upstage/solar-mini4 厂商: Upstage 智能指数: 24.1 Arena Elo: 1155 (website) 上下文: 512K 价格: $0.05 / $0.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2233]':
+          - generic [ref=e2234]: 智能 24.1
+          - generic [ref=e2235]: 512K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2237]: 搜本机
+      - button "第 81 名 GPT-5.1-Codex，激活可在本机搜索同名模型" [ref=e2241] [cursor=pointer]:
+        - generic [ref=e2242]:
+          - generic [ref=e2243]: "81"
+          - generic [ref=e2244]: GPT-5.1-Codex
+          - generic [ref=e2245]: OpenAI
+        - 'generic "openai/gpt-5.1-codex 厂商: OpenAI 智能指数: 23.7 Arena Elo: 1232 (uicomponent) 上下文: 391K 价格: $1.25 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2246]':
+          - generic [ref=e2247]: 智能 23.7
+          - generic [ref=e2248]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2250]: 搜本机
+      - button "第 82 名 Kimi K2.5，激活可在本机搜索同名模型" [ref=e2254] [cursor=pointer]:
+        - generic [ref=e2255]:
+          - generic [ref=e2256]: "82"
+          - generic [ref=e2257]: Kimi K2.5
+          - generic [ref=e2258]: MoonshotAI
+        - 'generic "moonshotai/kimi-k2.5 厂商: MoonshotAI 智能指数: 23.5 代码指数: 46.8 Arena Elo: 1248 (website) 上下文: 256K 价格: $0.50 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2259]':
+          - generic [ref=e2260]: 智能 23.5
+          - generic [ref=e2261]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2263]: 搜本机
+      - button "第 83 名 GLM 5V Turbo，激活可在本机搜索同名模型" [ref=e2267] [cursor=pointer]:
+        - generic [ref=e2268]:
+          - generic [ref=e2269]: "83"
+          - generic [ref=e2270]: GLM 5V Turbo
+          - generic [ref=e2271]: Z.ai
+        - 'generic "z-ai/glm-5v-turbo 厂商: Z.ai 智能指数: 23.5 Arena Elo: 1267 (androidnative) 上下文: 198K 价格: $1.20 / $4.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2272]':
+          - generic [ref=e2273]: 智能 23.5
+          - generic [ref=e2274]: 198K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2276]: 搜本机
+      - button "第 84 名 GPT-5，激活可在本机搜索同名模型" [ref=e2280] [cursor=pointer]:
+        - generic [ref=e2281]:
+          - generic [ref=e2282]: "84"
+          - generic [ref=e2283]: GPT-5
+          - generic [ref=e2284]: OpenAI
+        - 'generic "openai/gpt-5 厂商: OpenAI 智能指数: 23 代码指数: 37.8 Arena Elo: 1221 (dataviz) 上下文: 391K 价格: $1.25 / $10.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2285]':
+          - generic [ref=e2286]: 智能 23
+          - generic [ref=e2287]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2289]: 搜本机
+      - button "第 85 名 Nemotron 3 Ultra，激活可在本机搜索同名模型" [ref=e2293] [cursor=pointer]:
+        - generic [ref=e2294]:
+          - generic [ref=e2295]: "85"
+          - generic [ref=e2296]: Nemotron 3 Ultra
+          - generic [ref=e2297]: NVIDIA
+        - 'generic "nvidia/nemotron-3-ultra-550b-a55b 厂商: NVIDIA 智能指数: 22.9 代码指数: 49.3 Agent 指数: 20.1 Arena Elo: 1145 (codecategories) 上下文: 256K 价格: $0.60 / $2.40 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2298]':
+          - generic [ref=e2299]: 智能 22.9
+          - generic [ref=e2300]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2302]: 搜本机
+      - button "第 86 名 Qwen3.5-27B，激活可在本机搜索同名模型" [ref=e2306] [cursor=pointer]:
+        - generic [ref=e2307]:
+          - generic [ref=e2308]: "86"
+          - generic [ref=e2309]: Qwen3.5-27B
+          - generic [ref=e2310]: Qwen
+        - 'generic "qwen/qwen3.5-27b 厂商: Qwen 智能指数: 22.9 上下文: 256K 价格: $0.27 / $2.16 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2311]':
+          - generic [ref=e2312]: 智能 22.9
+          - generic [ref=e2313]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2315]: 搜本机
+      - button "第 87 名 MiniMax M2.7，激活可在本机搜索同名模型" [ref=e2319] [cursor=pointer]:
+        - generic [ref=e2320]:
+          - generic [ref=e2321]: "87"
+          - generic [ref=e2322]: MiniMax M2.7
+          - generic [ref=e2323]: MiniMax
+        - 'generic "minimax/minimax-m2.7 厂商: MiniMax 智能指数: 22.8 代码指数: 52.6 Agent 指数: 15.3 Arena Elo: 1241 (website) 上下文: 200K 价格: $0.30 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2324]':
+          - generic [ref=e2325]: 智能 22.8
+          - generic [ref=e2326]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2328]: 搜本机
+      - button "第 88 名 MiniMax M2.5，激活可在本机搜索同名模型" [ref=e2332] [cursor=pointer]:
+        - generic [ref=e2333]:
+          - generic [ref=e2334]: "88"
+          - generic [ref=e2335]: MiniMax M2.5
+          - generic [ref=e2336]: MiniMax
+        - 'generic "minimax/minimax-m2.5 厂商: MiniMax 智能指数: 22.8 Arena Elo: 1222 (website) 上下文: 200K 价格: $0.30 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2337]':
+          - generic [ref=e2338]: 智能 22.8
+          - generic [ref=e2339]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2341]: 搜本机
+      - button "第 89 名 Claude Opus 4.1，激活可在本机搜索同名模型" [ref=e2345] [cursor=pointer]:
+        - generic [ref=e2346]:
+          - generic [ref=e2347]: "89"
+          - generic [ref=e2348]: Claude Opus 4.1
+          - generic [ref=e2349]: Anthropic
+        - 'generic "anthropic/claude-opus-4.1 厂商: Anthropic 智能指数: 22.8 Arena Elo: 1175 (website) 上下文: 195K 价格: $15.00 / $75.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2350]':
+          - generic [ref=e2351]: 智能 22.8
+          - generic [ref=e2352]: 195K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2354]: 搜本机
+      - button "第 90 名 Gemini 3.5 Flash Lite，激活可在本机搜索同名模型" [ref=e2358] [cursor=pointer]:
+        - generic [ref=e2359]:
+          - generic [ref=e2360]: "90"
+          - generic [ref=e2361]: Gemini 3.5 Flash Lite
+          - generic [ref=e2362]: Google
+        - 'generic "google/gemini-3.5-flash-lite 厂商: Google 智能指数: 22.2 代码指数: 49.3 Agent 指数: 14.3 上下文: 1024K 价格: $0.30 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2363]':
+          - generic [ref=e2364]: 智能 22.2
+          - generic [ref=e2365]: 1024K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2367]: 搜本机
+      - button "第 91 名 GLM 4.7，激活可在本机搜索同名模型" [ref=e2371] [cursor=pointer]:
+        - generic [ref=e2372]:
+          - generic [ref=e2373]: "91"
+          - generic [ref=e2374]: GLM 4.7
+          - generic [ref=e2375]: Z.ai
+        - 'generic "z-ai/glm-4.7 厂商: Z.ai 智能指数: 22.2 代码指数: 45.3 Arena Elo: 1224 (website) 上下文: 200K 价格: $0.54 / $1.98 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2376]':
+          - generic [ref=e2377]: 智能 22.2
+          - generic [ref=e2378]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2380]: 搜本机
+      - button "第 92 名 Kimi K2 Thinking，激活可在本机搜索同名模型" [ref=e2384] [cursor=pointer]:
+        - generic [ref=e2385]:
+          - generic [ref=e2386]: "92"
+          - generic [ref=e2387]: Kimi K2 Thinking
+          - generic [ref=e2388]: MoonshotAI
+        - 'generic "moonshotai/kimi-k2-thinking 厂商: MoonshotAI 智能指数: 22 Arena Elo: 1113 (website) 上下文: 256K 价格: $0.60 / $2.50 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2389]':
+          - generic [ref=e2390]: 智能 22
+          - generic [ref=e2391]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2393]: 搜本机
+      - button "第 93 名 o3 Pro，激活可在本机搜索同名模型" [ref=e2397] [cursor=pointer]:
+        - generic [ref=e2398]:
+          - generic [ref=e2399]: "93"
+          - generic [ref=e2400]: o3 Pro
+          - generic [ref=e2401]: OpenAI
+        - 'generic "openai/o3-pro 厂商: OpenAI 智能指数: 21.9 上下文: 195K 价格: $20.00 / $80.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2402]':
+          - generic [ref=e2403]: 智能 21.9
+          - generic [ref=e2404]: 195K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2406]: 搜本机
+      - button "第 94 名 MiMo-V2.5，激活可在本机搜索同名模型" [ref=e2410] [cursor=pointer]:
+        - generic [ref=e2411]:
+          - generic [ref=e2412]: "94"
+          - generic [ref=e2413]: MiMo-V2.5
+          - generic [ref=e2414]: Xiaomi
+        - 'generic "xiaomi/mimo-v2.5 厂商: Xiaomi 智能指数: 21.8 代码指数: 56.8 Agent 指数: 15.8 Arena Elo: 1265 (website) 上下文: 1025K 价格: $0.12 / $0.24 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2415]':
+          - generic [ref=e2416]: 智能 21.8
+          - generic [ref=e2417]: 1025K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2419]: 搜本机
+      - button "第 95 名 DeepSeek V3.2，激活可在本机搜索同名模型" [ref=e2423] [cursor=pointer]:
+        - generic [ref=e2424]:
+          - generic [ref=e2425]: "95"
+          - generic [ref=e2426]: DeepSeek V3.2
+          - generic [ref=e2427]: DeepSeek
+        - 'generic "deepseek/deepseek-v3.2 厂商: DeepSeek 智能指数: 21.5 代码指数: 44.2 Arena Elo: 1173 (website) 上下文: 160K 价格: $0.28 / $0.42 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2428]':
+          - generic [ref=e2429]: 智能 21.5
+          - generic [ref=e2430]: 160K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2432]: 搜本机
+      - button "第 96 名 Qwen3.6 27B，激活可在本机搜索同名模型" [ref=e2436] [cursor=pointer]:
+        - generic [ref=e2437]:
+          - generic [ref=e2438]: "96"
+          - generic [ref=e2439]: Qwen3.6 27B
+          - generic [ref=e2440]: Qwen
+        - 'generic "qwen/qwen3.6-27b 厂商: Qwen 智能指数: 21.4 代码指数: 53.7 Agent 指数: 18.5 上下文: 256K 价格: $0.32 / $3.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2441]':
+          - generic [ref=e2442]: 智能 21.4
+          - generic [ref=e2443]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2445]: 搜本机
+      - button "第 97 名 Qwen3.5 397B A17B，激活可在本机搜索同名模型" [ref=e2449] [cursor=pointer]:
+        - generic [ref=e2450]:
+          - generic [ref=e2451]: "97"
+          - generic [ref=e2452]: Qwen3.5 397B A17B
+          - generic [ref=e2453]: Qwen
+        - 'generic "qwen/qwen3.5-397b-a17b 厂商: Qwen 智能指数: 21.4 Arena Elo: 1189 (website) 上下文: 256K 价格: $0.50 / $3.60 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2454]':
+          - generic [ref=e2455]: 智能 21.4
+          - generic [ref=e2456]: 256K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2458]: 搜本机
+      - button "第 98 名 MiniMax M2.1，激活可在本机搜索同名模型" [ref=e2462] [cursor=pointer]:
+        - generic [ref=e2463]:
+          - generic [ref=e2464]: "98"
+          - generic [ref=e2465]: MiniMax M2.1
+          - generic [ref=e2466]: MiniMax
+        - 'generic "minimax/minimax-m2.1 厂商: MiniMax 智能指数: 20.9 Arena Elo: 1218 (uicomponent) 上下文: 200K 价格: $0.30 / $1.20 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2467]':
+          - generic [ref=e2468]: 智能 20.9
+          - generic [ref=e2469]: 200K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2471]: 搜本机
+      - button "第 99 名 GPT-5.4 Nano，激活可在本机搜索同名模型" [ref=e2475] [cursor=pointer]:
+        - generic [ref=e2476]:
+          - generic [ref=e2477]: "99"
+          - generic [ref=e2478]: GPT-5.4 Nano
+          - generic [ref=e2479]: OpenAI
+        - 'generic "openai/gpt-5.4-nano 厂商: OpenAI 智能指数: 20.7 代码指数: 56.1 Agent 指数: 16 上下文: 391K 价格: $0.20 / $1.25 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2480]':
+          - generic [ref=e2481]: 智能 20.7
+          - generic [ref=e2482]: 391K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2484]: 搜本机
+      - button "第 100 名 Claude Sonnet 4.5，激活可在本机搜索同名模型" [ref=e2488] [cursor=pointer]:
+        - generic [ref=e2489]:
+          - generic [ref=e2490]: "100"
+          - generic [ref=e2491]: Claude Sonnet 4.5
+          - generic [ref=e2492]: Anthropic
+        - 'generic "anthropic/claude-sonnet-4.5 厂商: Anthropic 智能指数: 20.7 代码指数: 52.1 Agent 指数: 15.8 Arena Elo: 1205 (asciiart) 上下文: 977K 价格: $3.00 / $15.00 每百万 token 点击行：在本机模型中搜索同名渠道" [ref=e2493]':
+          - generic [ref=e2494]: 智能 20.7
+          - generic [ref=e2495]: 977K
+        - generic "在本机模型列表中搜索同名模型" [ref=e2497]: 搜本机
+    - generic [aria-hidden] [ref=e1176]:
+      - generic [ref=e1177]: ↑↓导航
+      - generic [ref=e1179]: ⏎选用模型
+      - generic [ref=e1181]: Esc关闭
+      - generic [ref=e1183]: Tab循环焦点

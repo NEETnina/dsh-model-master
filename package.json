@@ -32,6 +32,8 @@
     "client.js",
     "cordis.patch.yml",
     "icon.svg",
+    "screenshots.json",
+    "assets/",
     "LICENSE",
     "README.md",
     "CHANGELOG.md",

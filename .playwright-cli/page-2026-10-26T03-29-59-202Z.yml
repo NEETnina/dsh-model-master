@@ -1,0 +1,92 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - button "新建会话" [ref=e9] [cursor=pointer]
+        - button "收起侧边栏" [ref=e38] [cursor=pointer]
+      - button "新建会话" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: 新会话
+        - generic [aria-hidden]:
+          - generic:
+            - generic: Ctrl
+            - generic: +
+            - generic: Alt
+            - generic: +
+            - generic: "N"
+      - navigation "全局面板" [ref=e47]:
+        - button "插件" [ref=e48] [cursor=pointer]
+        - button "自动化任务" [ref=e57] [cursor=pointer]
+        - button "上下文洞察" [ref=e64] [cursor=pointer]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: 工作区
+          - generic [ref=e76]:
+            - button "搜索会话" [ref=e77] [cursor=pointer]
+            - textbox "搜索会话名称"
+          - generic [ref=e81]:
+            - button "视图选项" [ref=e83] [cursor=pointer]
+            - button "添加工作区" [ref=e87] [cursor=pointer]
+        - tree "会话" [ref=e92]:
+          - generic [ref=e93]:
+            - treeitem "dsh-model-master" [expanded] [ref=e95] [cursor=pointer]
+            - treeitem "新会话" [selected] [ref=e292] [cursor=pointer]
+            - treeitem "1 个自动化任务 代控GitHub账号发布项目 3分钟" [ref=e296] [cursor=pointer]:
+              - generic [ref=e297]: 1 个自动化任务
+              - generic [ref=e304]: 代控GitHub账号发布项目
+              - generic [ref=e305]: 3分钟
+            - treeitem "插件发布前全面检查 26分钟" [ref=e307] [cursor=pointer]:
+              - generic [ref=e309]: 插件发布前全面检查
+              - generic [ref=e310]: 26分钟
+          - treeitem "26056" [ref=e103] [cursor=pointer]
+          - treeitem "dsh-model-master" [ref=e111] [cursor=pointer]
+          - treeitem "ShuaKe" [ref=e119] [cursor=pointer]
+          - treeitem "作品素材" [ref=e127] [cursor=pointer]
+          - treeitem "vibe知识大赏" [ref=e135] [cursor=pointer]
+          - treeitem "DS-test" [ref=e143] [cursor=pointer]
+          - treeitem "Retrieval-based-Voice-Conversion-WebUI" [ref=e151] [cursor=pointer]
+          - treeitem "emo文案" [ref=e159] [cursor=pointer]
+          - treeitem "2026 年第二届全国大学生仿真建模应用挑战赛" [ref=e167] [cursor=pointer]
+          - treeitem "E:\\" [ref=e175] [cursor=pointer]
+          - treeitem "OpenLive2D" [ref=e183] [cursor=pointer]
+          - treeitem "Godot" [ref=e191] [cursor=pointer]
+          - treeitem "work" [ref=e199] [cursor=pointer]
+          - treeitem [ref=e207] [cursor=pointer]
+          - treeitem "全国大学生数学建模竞赛" [ref=e213] [cursor=pointer]
+          - treeitem [ref=e221] [cursor=pointer]
+          - treeitem [ref=e227] [cursor=pointer]
+          - treeitem "未分组" [ref=e312] [cursor=pointer]
+      - button "账号菜单" [ref=e238] [cursor=pointer]:
+        - generic [ref=e318]: 153******86
+    - generic [ref=e246]:
+      - banner [ref=e320]:
+        - button "打开右侧边栏" [ref=e325] [cursor=pointer]
+      - generic [ref=e252]:
+        - generic [ref=e260]:
+          - generic [ref=e261]: 探索未至之境
+          - generic [ref=e262]: 预览版
+        - generic [ref=e263]:
+          - button "选择工作区" [ref=e264] [cursor=pointer]:
+            - generic [ref=e267]: dsh-model-master
+          - button "标准模式" [ref=e334] [cursor=pointer]
+        - generic [ref=e272]:
+          - generic [ref=e274]:
+            - textbox "描述你想要构建的内容, / 调用指令, @ 文件或对话" [ref=e343]
+            - generic [aria-hidden]: 描述你想要构建的内容, / 调用指令, @ 文件或对话
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - button "添加文件或调用指令" [ref=e344] [cursor=pointer]
+              - button "访问模式，当前：完全权限" [ref=e349] [cursor=pointer]:
+                - generic [ref=e353]: 完全权限
+            - generic [ref=e278]:
+              - button "选择模型，当前 DeepSeek-V4.1-Flash · x0.12，推理等级 Extra High" [expanded] [active] [ref=e360] [cursor=pointer]:
+                - generic [ref=e361]: DeepSeek-V4.1-Flash · x0.12
+                - generic [ref=e363]: Extra High
+              - button "发送消息" [disabled] [ref=e366]
+  - menu "模型与推理等级" [ref=e372]:
+    - menuitem "模型 DeepSeek-V4.1-Flash · x0.12" [ref=e373] [cursor=pointer]:
+      - generic [ref=e374]: 模型
+      - generic [ref=e375]: DeepSeek-V4.1-Flash · x0.12
+    - menuitem "推理等级 Extra High Extra High" [ref=e379] [cursor=pointer]:
+      - generic [ref=e380]: 推理等级
+      - generic [ref=e381]: Extra High
+      - slider "推理等级" [ref=e386]

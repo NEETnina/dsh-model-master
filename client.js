@@ -46,6 +46,9 @@ window.__ModuleLoader__.load({
     /* ══════════════ i18n：15 语言（全球使用人数前列）══════════════
        en/zh 全量；其余语言为 UI 级翻译。键 = 英文语义名，缺译文回退中文。 */
     var UI_LANG_KEY = 'dsh_model_master_lang'
+    // Remembers which group the user was last browsing, so reopening the panel
+    // lands where they left off instead of resetting to "all".
+    var LAST_GROUP_KEY = 'dsh_model_master_last_group'
     var LANGUAGES = [
       ['en', 'English'],
       ['zh', '中文'],
@@ -2743,10 +2746,11 @@ window.__ModuleLoader__.load({
         background: var(--dmm-bg-surface);
       }
       .dmm-tab.active {
-        color: var(--dmm-text-title);
-        background: var(--dmm-bg-surface-hover);
-        border-color: var(--dmm-border);
+        color: var(--dmm-accent);
+        background: var(--dmm-accent-soft-bg);
+        border-color: var(--dmm-accent-soft-border);
         font-weight: 600;
+        box-shadow: inset 0 -2px 0 var(--dmm-accent);
       }
       .dmm-tab-badge {
         padding: 0 4px;
@@ -2758,7 +2762,9 @@ window.__ModuleLoader__.load({
         color: var(--dmm-text-muted);
       }
       .dmm-tab.active .dmm-tab-badge {
-        color: var(--dmm-text-title);
+        color: var(--dmm-accent);
+        background: var(--dmm-accent-soft-border);
+        font-weight: 600;
       }
 
       /* ── Leaderboard entry button (header, grouped with actions) ── */
@@ -3613,7 +3619,31 @@ window.__ModuleLoader__.load({
           return 'dark'
         }
       })
-      const [activeTab, setActiveTab] = useState('all')
+      // Restore the group the panel was last left on. 'leaderboard' is
+      // deliberately not restored: it is a transient view, not a group, and
+      // reopening straight onto the board would hide the model list.
+      const [activeTab, setActiveTab] = useState(() => {
+        try {
+          const saved = localStorage.getItem(LAST_GROUP_KEY)
+          return saved && saved !== 'leaderboard' ? saved : 'all'
+        } catch {
+          return 'all'
+        }
+      })
+      // A restored id may no longer exist (a provider was removed, another
+      // plugin took the slot). Fall back to 'all' rather than showing an empty
+      // list with no tab selected.
+      useEffect(() => {
+        if (activeTab === 'all' || activeTab === 'leaderboard') return
+        if (!groups.length) return
+        if (!groups.some(g => g && g.id === activeTab)) setActiveTab('all')
+      }, [activeTab, groups])
+      // Persist the group on every change so the choice survives a reload.
+      useEffect(() => {
+        try {
+          if (activeTab && activeTab !== 'leaderboard') localStorage.setItem(LAST_GROUP_KEY, activeTab)
+        } catch {}
+      }, [activeTab])
       const [searchQuery, setSearchQuery] = useState('')
       const [sortMode, setSortMode] = useState('smart')
       const [highlightedIndex, setHighlightedIndex] = useState(-1)
@@ -3718,6 +3748,18 @@ window.__ModuleLoader__.load({
         }
       }, [isOpen, highlightedIndex])
 
+      // On open, bring the currently selected model into view once, so a user
+      // returning to the panel sees what they are on instead of the top of a
+      // 1000-row list. Declared after `filteredModels` so it can read it.
+      //
+      // Two things make this more than one scrollIntoView call:
+      //   1. Only the first `visibleCount` rows are mounted (progressive
+      //      rendering), so the target may not exist yet — the window has to be
+      //      widened past its index first.
+      //   2. The list scrolls inside `.dmm-content`, and scrollIntoView on an
+      //      inner element would also scroll ancestors. Scrolling that container
+      //      directly keeps the panel itself put.
+
       const showToast = useCallback(msg => {
         setToastMsg(msg)
         setTimeout(() => setToastMsg(null), 2500)
@@ -3816,6 +3858,45 @@ window.__ModuleLoader__.load({
         }
         return sorted
       }, [allModelEntries, activeTab, searchQuery, sortMode])
+
+      // On open, bring the currently selected model into view once, so a user
+      // returning to the panel sees what they are on instead of the top of a
+      // 1000-row list. Declared after `filteredModels` so it can read it.
+      //
+      // Two things make this more than one scrollIntoView call:
+      //   1. Only the first `visibleCount` rows are mounted (progressive
+      //      rendering), so the target may not exist yet — the window has to be
+      //      widened past its index first.
+      //   2. The list scrolls inside `.dmm-content`; scrollIntoView on an inner
+      //      element would also scroll ancestors, moving the panel itself.
+      const autoScrollTarget = useMemo(() => {
+        if (!currentSelection) return -1
+        return filteredModels.findIndex(
+          e => e.providerId === currentSelection.provider && e.modelId === currentSelection.model
+        )
+      }, [filteredModels, currentSelection])
+      const didAutoScrollRef = useRef(false)
+      useEffect(() => {
+        if (!isOpen) {
+          didAutoScrollRef.current = false
+          return
+        }
+        if (didAutoScrollRef.current || autoScrollTarget < 0) return
+        if (autoScrollTarget >= visibleCount) {
+          setVisibleCount(autoScrollTarget + PAGE_SIZE)
+          return
+        }
+        const timer = setTimeout(() => {
+          const el = document.querySelector('.dmm-card.active')
+          const scroller = document.querySelector('.dmm-content')
+          if (el && scroller) {
+            const top = el.offsetTop - scroller.clientHeight / 2 + el.clientHeight / 2
+            scroller.scrollTop = Math.max(0, top)
+            didAutoScrollRef.current = true
+          }
+        }, 50)
+        return () => clearTimeout(timer)
+      }, [isOpen, activeTab, autoScrollTarget, visibleCount])
 
       // The batch-test and smart-pick controls operate on the VISIBLE scope:
       // the search results while a search is active, otherwise the tab's models.
@@ -4022,8 +4103,7 @@ window.__ModuleLoader__.load({
                 h(
                   'button',
                   {
-                    className:
-                      "dmm-header-lb-btn ${activeTab === 'leaderboard' && !String(searchQuery || '').trim() ? 'active' : ''}",
+                    className: `dmm-header-lb-btn ${activeTab === 'leaderboard' && !String(searchQuery || '').trim() ? 'active' : ''}`,
                     title: t('boardBtnTitle'),
                     onClick: () => {
                       if (String(searchQuery || '').trim()) {
@@ -4225,8 +4305,7 @@ window.__ModuleLoader__.load({
                     h(
                       'button',
                       {
-                        className:
-                          "dmm-action-btn ${visibleScopeModels.length > 40 && confirmBatch ? 'dmm-btn-warn' : 'dmm-btn-primary'}",
+                        className: `dmm-action-btn ${visibleScopeModels.length > 40 && confirmBatch ? 'dmm-btn-warn' : 'dmm-btn-primary'}`,
                         disabled: visibleScopeModels.length === 0,
                         title: isBatchTesting
                           ? t('batchStopTitle')
@@ -4302,7 +4381,7 @@ window.__ModuleLoader__.load({
                 h(
                   'button',
                   {
-                    className: "dmm-tab ${activeTab === 'all' ? 'active' : ''}",
+                    className: `dmm-tab ${activeTab === 'all' ? 'active' : ''}`,
                     onClick: () => {
                       setActiveTab('all')
                       setHighlightedIndex(-1)
@@ -4316,7 +4395,7 @@ window.__ModuleLoader__.load({
                     'button',
                     {
                       key: g.id,
-                      className: "dmm-tab ${activeTab === g.id ? 'active' : ''}",
+                      className: `dmm-tab ${activeTab === g.id ? 'active' : ''}`,
                       onClick: () => {
                         setActiveTab(g.id)
                         setHighlightedIndex(-1)
@@ -4418,8 +4497,7 @@ window.__ModuleLoader__.load({
                                   'div',
                                   {
                                     key: entry.key,
-                                    className:
-                                      "dmm-card ${isCurrent ? 'active' : ''} ${isHighlighted ? 'highlighted' : ''}",
+                                    className: `dmm-card ${isCurrent ? 'active' : ''} ${isHighlighted ? 'highlighted' : ''}`,
                                     onMouseEnter: () => setHighlightedIndex(idx),
                                     onClick: async () => {
                                       const eff = entry.reasoning?.defaultEffort
@@ -4775,8 +4853,7 @@ window.__ModuleLoader__.load({
                                     'div',
                                     {
                                       key: entry.key,
-                                      className:
-                                        "dmm-card ${isCurrent ? 'active' : ''} ${isHighlighted ? 'highlighted' : ''}",
+                                      className: `dmm-card ${isCurrent ? 'active' : ''} ${isHighlighted ? 'highlighted' : ''}`,
                                       onMouseEnter: () => setHighlightedIndex(idx),
                                       onClick: async () => {
                                         const eff = entry.reasoning?.defaultEffort
@@ -5540,8 +5617,7 @@ window.__ModuleLoader__.load({
           ? h(
               'div',
               {
-                className:
-                  "dmm-seat-toast ${seatToast.type === 'error' ? 'dmm-seat-toast-error' : 'dmm-seat-toast-success'}"
+                className: `dmm-seat-toast ${seatToast.type === 'error' ? 'dmm-seat-toast-error' : 'dmm-seat-toast-success'}`
               },
               h('span', { className: 'dmm-toast-dot' }),
               seatToast.msg

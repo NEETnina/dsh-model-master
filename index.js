@@ -1,5 +1,5 @@
 /**
- * Model Selection Master (模型选择大师) — Host Service
+ * 模型选择大师 — Host Service
  *
  * Provides backend facilities for the Model Master Web UI:
  *   1. `/api/model-master/probe` — Live streaming benchmark (measures TTFT in ms and TPS in tok/s)

@@ -1,5 +1,5 @@
 /**
- * Model Selection Master (模型选择大师) — Web Client
+ * 模型选择大师 — Web Client
  *
  * Precision-engineered Spotlight modal replacing and elevating DSH's native
  * `conversation.input.model` slot:

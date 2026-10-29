@@ -132,7 +132,7 @@ window.__ModuleLoader__.load({
       updateBadge: '有新版本 {0}',
       updateAvailableTip: '发现新版本 {0}，点击查看',
       updateChecking: '正在检查更新…',
-      updateUpToDate: '已是最新版本',
+      updateUpToDate: '已是最新版本 {0}',
       updateUnknownTip: '无法确认是否有新版本',
       updateBtnTitle: '检查更新',
       updateReleaseNotes: '查看发布说明',
@@ -289,7 +289,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} available',
       updateAvailableTip: 'Version {0} is available — click to view',
       updateChecking: 'Checking for updates…',
-      updateUpToDate: 'Up to date',
+      updateUpToDate: 'Up to date · {0}',
       updateUnknownTip: 'Could not determine whether an update exists',
       updateBtnTitle: 'Check for updates',
       updateReleaseNotes: 'View release notes',
@@ -438,7 +438,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} が利用可能',
       updateAvailableTip: '新しいバージョン {0} があります。クリックして表示',
       updateChecking: '更新を確認中…',
-      updateUpToDate: '最新版です',
+      updateUpToDate: '最新版です · {0}',
       updateUnknownTip: '更新の有無を確認できませんでした',
       updateBtnTitle: '更新を確認',
       updateReleaseNotes: 'リリースノートを見る',
@@ -586,7 +586,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} 사용 가능',
       updateAvailableTip: '새 버전 {0}이(가) 있습니다. 클릭하여 확인',
       updateChecking: '업데이트 확인 중…',
-      updateUpToDate: '최신 버전입니다',
+      updateUpToDate: '최신 버전입니다 · {0}',
       updateUnknownTip: '업데이트 여부를 확인할 수 없습니다',
       updateBtnTitle: '업데이트 확인',
       updateReleaseNotes: '릴리스 노트 보기',
@@ -734,7 +734,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} verfügbar',
       updateAvailableTip: 'Version {0} ist verfügbar – zum Ansehen klicken',
       updateChecking: 'Suche nach Updates…',
-      updateUpToDate: 'Aktuell',
+      updateUpToDate: 'Aktuell · {0}',
       updateUnknownTip: 'Es konnte nicht festgestellt werden, ob ein Update vorliegt',
       updateBtnTitle: 'Nach Updates suchen',
       updateReleaseNotes: 'Versionshinweise ansehen',
@@ -883,7 +883,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} disponible',
       updateAvailableTip: 'La version {0} est disponible — cliquez pour voir',
       updateChecking: 'Recherche de mises à jour…',
-      updateUpToDate: 'À jour',
+      updateUpToDate: 'À jour · {0}',
       updateUnknownTip: 'Impossible de déterminer si une mise à jour existe',
       updateBtnTitle: 'Rechercher des mises à jour',
       updateReleaseNotes: 'Voir les notes de version',
@@ -1033,7 +1033,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} disponible',
       updateAvailableTip: 'La versión {0} está disponible — haz clic para ver',
       updateChecking: 'Buscando actualizaciones…',
-      updateUpToDate: 'Actualizado',
+      updateUpToDate: 'Actualizado · {0}',
       updateUnknownTip: 'No se pudo determinar si hay una actualización',
       updateBtnTitle: 'Buscar actualizaciones',
       updateReleaseNotes: 'Ver notas de la versión',
@@ -1183,7 +1183,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} disponível',
       updateAvailableTip: 'A versão {0} está disponível — clique para ver',
       updateChecking: 'Procurando atualizações…',
-      updateUpToDate: 'Atualizado',
+      updateUpToDate: 'Atualizado · {0}',
       updateUnknownTip: 'Não foi possível determinar se há atualização',
       updateBtnTitle: 'Procurar atualizações',
       updateReleaseNotes: 'Ver notas da versão',
@@ -1333,7 +1333,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'доступна v{0}',
       updateAvailableTip: 'Доступна версия {0} — нажмите, чтобы посмотреть',
       updateChecking: 'Проверка обновлений…',
-      updateUpToDate: 'Обновлений нет',
+      updateUpToDate: 'Обновлений нет · {0}',
       updateUnknownTip: 'Не удалось определить наличие обновления',
       updateBtnTitle: 'Проверить обновления',
       updateReleaseNotes: 'Смотреть примечания к выпуску',
@@ -1483,7 +1483,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'الإصدار {0} متاح',
       updateAvailableTip: 'الإصدار {0} متاح — انقر للعرض',
       updateChecking: 'جارٍ التحقق من التحديثات…',
-      updateUpToDate: 'محدَّث',
+      updateUpToDate: 'محدَّث · {0}',
       updateUnknownTip: 'تعذّر تحديد ما إذا كان هناك تحديث',
       updateBtnTitle: 'التحقق من التحديثات',
       updateReleaseNotes: 'عرض ملاحظات الإصدار',
@@ -1631,7 +1631,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} उपलब्ध',
       updateAvailableTip: 'संस्करण {0} उपलब्ध है — देखने के लिए क्लिक करें',
       updateChecking: 'अपडेट की जाँच हो रही है…',
-      updateUpToDate: 'अद्यतित',
+      updateUpToDate: 'अद्यतित · {0}',
       updateUnknownTip: 'यह निर्धारित नहीं हो सका कि कोई अपडेट है या नहीं',
       updateBtnTitle: 'अपडेट जाँचें',
       updateReleaseNotes: 'रिलीज़ नोट्स देखें',
@@ -1779,7 +1779,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} উপলব্ধ',
       updateAvailableTip: 'সংস্করণ {0} উপলব্ধ — দেখতে ক্লিক করুন',
       updateChecking: 'আপডেট যাচাই করা হচ্ছে…',
-      updateUpToDate: 'হালনাগাদ',
+      updateUpToDate: 'হালনাগাদ · {0}',
       updateUnknownTip: 'আপডেট আছে কিনা তা নির্ধারণ করা যায়নি',
       updateBtnTitle: 'আপডেট যাচাই করুন',
       updateReleaseNotes: 'রিলিজ নোট দেখুন',
@@ -1928,7 +1928,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} دستیاب',
       updateAvailableTip: 'ورژن {0} دستیاب ہے — دیکھنے کے لیے کلک کریں',
       updateChecking: 'اپ ڈیٹ کی جانچ ہو رہی ہے…',
-      updateUpToDate: 'تازہ ترین',
+      updateUpToDate: 'تازہ ترین · {0}',
       updateUnknownTip: 'یہ طے نہیں ہو سکا کہ کوئی اپ ڈیٹ ہے یا نہیں',
       updateBtnTitle: 'اپ ڈیٹ جانچیں',
       updateReleaseNotes: 'ریلیز نوٹس دیکھیں',
@@ -2076,7 +2076,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} tersedia',
       updateAvailableTip: 'Versi {0} tersedia — klik untuk melihat',
       updateChecking: 'Memeriksa pembaruan…',
-      updateUpToDate: 'Terbaru',
+      updateUpToDate: 'Terbaru · {0}',
       updateUnknownTip: 'Tidak dapat memastikan apakah ada pembaruan',
       updateBtnTitle: 'Periksa pembaruan',
       updateReleaseNotes: 'Lihat catatan rilis',
@@ -2224,7 +2224,7 @@ window.__ModuleLoader__.load({
       updateBadge: 'v{0} mevcut',
       updateAvailableTip: '{0} sürümü mevcut — görüntülemek için tıklayın',
       updateChecking: 'Güncellemeler denetleniyor…',
-      updateUpToDate: 'Güncel',
+      updateUpToDate: 'Güncel · {0}',
       updateUnknownTip: 'Güncelleme olup olmadığı belirlenemedi',
       updateBtnTitle: 'Güncellemeleri denetle',
       updateReleaseNotes: 'Sürüm notlarını görüntüle',
@@ -4441,12 +4441,14 @@ window.__ModuleLoader__.load({
                 (() => {
                   const info = updateInfo
                   const hasUpdate = info?.hasUpdate === true
+                  // Every {0} below must be supplied — a missing param renders
+                  // the placeholder verbatim in the tooltip.
                   const title = updateChecking
                     ? t('updateChecking')
                     : hasUpdate
                       ? t('updateAvailableTip', [info.latest])
                       : info?.hasUpdate === false
-                        ? t('updateUpToDate')
+                        ? t('updateUpToDate', [info.current])
                         : t('updateUnknownTip')
 
                   if (hasUpdate && info.releaseUrl) {
@@ -4471,10 +4473,36 @@ window.__ModuleLoader__.load({
                       title,
                       'aria-label': t('updateBtnTitle'),
                       disabled: updateChecking,
-                      onClick: onCheckUpdate
+                      // Report the outcome. Without this the button is a no-op
+                      // from the user's side whenever the answer is "no update"
+                      // or "could not tell" -- nothing on screen changes, so it
+                      // reads as broken.
+                      onClick: async () => {
+                        const result = await onCheckUpdate()
+                        if (!result) {
+                          showToast(t('updateUnknownTip'))
+                          return
+                        }
+                        if (result.hasUpdate === true) {
+                          showToast(t('updateAvailableTip', [result.latest]))
+                        } else if (result.hasUpdate === false) {
+                          showToast(t('updateUpToDate', [result.current]))
+                        } else {
+                          // Unknown stays distinct from "current", and carries
+                          // the reason when the host gave one.
+                          const why = result.error
+                            ? `${t('updateUnknownTip')} · ${result.error}`
+                            : t('updateUnknownTip')
+                          showToast(why)
+                        }
+                      }
                     },
                     IcoRefresh(12),
-                    h('span', { className: 'dmm-update-label' }, t('updateBtnTitle'))
+                    h(
+                      'span',
+                      { className: 'dmm-update-label' },
+                      updateChecking ? t('updateChecking') : t('updateBtnTitle')
+                    )
                   )
                 })(),
                 // Leaderboard entry grouped with the other header actions.
@@ -5843,19 +5871,25 @@ window.__ModuleLoader__.load({
       // Manual update check. Awaits the host, which awaits GitHub, so this can
       // be slow — hence the explicit `updateChecking` state. On any failure we
       // keep whatever we had rather than downgrading to a confident "up to date".
+      //
+      // Returns the payload so the caller can report the outcome; a check that
+      // produces no visible change reads as a dead button, which is exactly how
+      // this shipped the first time.
       const handleCheckUpdate = useCallback(async () => {
-        if (updateChecking) return false
+        if (updateChecking) return null
         setUpdateChecking(true)
         try {
           const res = await fetch('/api/model-master/update/check', { method: 'POST' })
-          if (!res.ok) return false
+          if (!res.ok) {
+            return { hasUpdate: null, sourceKind: 'offline', error: `HTTP ${res.status}` }
+          }
           const data = await res.json()
-          if (!data) return false
+          if (!data) return { hasUpdate: null, sourceKind: 'offline', error: null }
           setUpdateInfo(data)
-          return data.hasUpdate === true
+          return data
         } catch (err) {
           console.error('[model-master] Failed to check for updates:', err)
-          return false
+          return { hasUpdate: null, sourceKind: 'offline', error: err?.message || null }
         } finally {
           setUpdateChecking(false)
         }

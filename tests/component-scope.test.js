@@ -318,9 +318,63 @@ test('the update badge takes its state from props', () => {
     assert.ok(modalProps.has(prop), `the modal must declare the "${prop}" prop`)
     assert.ok(modalSrc.includes(prop), `the modal must use "${prop}"`)
   }
-  // The handler is owned by the parent; the modal only calls it.
-  assert.ok(!/onClick:\s*handleCheckUpdate/.test(modalSrc), 'the modal must not call the parent handler by name')
-  assert.ok(/onClick:\s*onCheckUpdate/.test(modalSrc), 'the modal must call the injected handler')
+  // The handler is owned by the parent; the modal only calls it — it must never
+  // reference the parent's own function name.
+  assert.ok(modalSrc.includes('await onCheckUpdate()'), 'the modal must invoke the injected handler')
+  assert.ok(!/\bhandleCheckUpdate\b/.test(modalSrc), 'the modal must not reference the parent handler by name')
+})
+
+test('a manual check always reports its outcome to the user', () => {
+  // The first version of this button was a no-op from the user's side: pressing
+  // it changed nothing on screen unless a newer release existed, so it read as
+  // broken. Every branch of the handler must surface something.
+  const handler = modalSrc.match(/onClick:\s*async\s*\(\)\s*=>\s*\{[\s\S]*?\n\s{22}\}/)
+  assert.ok(handler, 'the check button must own an async click handler')
+  const body = handler[0]
+
+  const toasts = (body.match(/showToast\(/g) || []).length
+  assert.ok(toasts >= 3, `every outcome needs a toast, found ${toasts}`)
+  // The three-state verdict must be branched on explicitly, not by truthiness.
+  assert.ok(/hasUpdate === true/.test(body), 'the handler must branch on hasUpdate === true')
+  assert.ok(/hasUpdate === false/.test(body), 'the handler must branch on hasUpdate === false')
+  // A null verdict must still say something.
+  assert.ok(/updateUnknownTip/.test(body), 'the unknown verdict must be reported')
+})
+
+test('the button shows progress while a check is in flight', () => {
+  // Immediate feedback: the label switches while awaiting the host.
+  assert.ok(
+    /updateChecking \? t\('updateChecking'\) : t\('updateBtnTitle'\)/.test(modalSrc),
+    'the label must change while checking'
+  )
+})
+
+test('every update string with a placeholder is called with its argument', () => {
+  // A missing param does not throw: `t()` leaves `{0}` in place and the user sees
+  // the literal placeholder. That happened to the "up to date" tooltip once the
+  // string gained a version slot, and nothing failed — it was only visible in a
+  // browser. Each of these strings must always be called with params.
+  const withPlaceholder = [
+    'updateBadge', // 有新版本 {0}
+    'updateAvailableTip', // 发现新版本 {0}，点击查看
+    'updateUpToDate' // 已是最新版本 {0}
+  ]
+
+  for (const key of withPlaceholder) {
+    // the dictionary entry really does contain a placeholder
+    const dictEntry = new RegExp(`${key}: '[^']*\\{0\\}`)
+    assert.ok(dictEntry.test(CLIENT), `${key} is expected to contain {0}`)
+
+    // and every call site passes one
+    const calls = [...modalSrc.matchAll(new RegExp(`t\\('${key}'(\\s*,\\s*\\[[^\\]]*\\])?`, 'g'))]
+    assert.ok(calls.length > 0, `${key} must be used in the modal`)
+    const missing = calls.filter(c => !c[1])
+    assert.equal(
+      missing.length,
+      0,
+      `${key} is called without params at ${missing.length} site(s); {0} would render literally`
+    )
+  }
 })
 
 test('every prop the modal declares is actually passed at the render site', () => {

@@ -83,12 +83,18 @@ dsh-model-master 补齐三件事：
 
 顶栏有一枚「检查更新」按钮，点一下就会去问 GitHub 有没有新版本。
 
-- **发现新版本**时，按钮变成蓝色胶囊 `有新版本 1.1.0`，点击直达该 release 页面。
-- **已是最新**时保持安静，不打扰。
-- **检测不到时如实说检测不到**。这一点是刻意的：`hasUpdate` 是三态 —— `true` / `false` / **`null`（未知）**。
-  网络不通、GitHub 限流、tag 无法解析时一律是 `null`，界面显示「无法确认是否有新版本」，
+按下后按钮立刻变成「正在检查更新…」并转圈；请求返回后弹一条提示把结果说清楚：
+
+- **发现新版本** → 提示「发现新版本 x.y.z，点击查看」，按钮同时变成蓝色胶囊 `有新版本 x.y.z`，点击直达该 release 页面。
+- **已是最新** → 提示「已是最新版本 x.y.z」。带上版本号是有意的：它证明检查确实跑过并拿到了真实结果，
+  而不是没反应。
+- **检测不到时如实说检测不到** → 提示「无法确认是否有新版本 · 原因」。这一点是刻意的：`hasUpdate` 是三态
+  —— `true` / `false` / **`null`（未知）**，网络不通、GitHub 限流、tag 无法解析时一律是 `null`，
   **绝不会把「没查到」显示成「已是最新」**。理由和测速那条一样：一句没验证过的「你已经是最新的」，
   和编造一个 TPS 数字是同一种谎。
+
+**三种情况都必须有可见反馈。** 这是 1.1.1 修掉的问题：1.1.0 的按钮确实会发请求、也确实拿到了结果，
+但界面上什么都不变 —— 除非恰好有新版本，于是「已是最新」和「无法确认」从用户视角看都是「按钮坏了」。
 
 工程上守两条纪律：
 
@@ -284,7 +290,7 @@ npm run format:check
 | 方式        | 用户侧命令                                                      | 需要构建授权                                 |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------- |
 | **npm**     | `dsh plugin --profile web add dsh-model-master`                 | 否（预构建产物）                             |
-| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.1.0.tgz`     | 否（预构建产物）                             |
+| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.1.1.tgz`     | 否（预构建产物）                             |
 | **git**     | `dsh plugin --profile web add github:NEETnina/dsh-model-master` | **是**（拉的是源码，pnpm 需授权 build 脚本） |
 
 因为本仓库是纯 JS、无构建步骤，git 安装虽然能跑，但**推荐 npm 或 tarball** —— 用户不必授予任何安装期脚本权限。
@@ -332,7 +338,7 @@ DSH **没有官方市场**。用户可以在 Plugins 页面打开实验特性 _C
       "icon": "icons/model-master.svg",
       "versions": [
         {
-          "version": "1.1.0",
+          "version": "1.1.1",
           "publishTimestamp": 1761536000,
           "source": { "type": "npm" },
           "engines": { "dsh": ">=0.2.0 <0.3.0" }
@@ -366,7 +372,7 @@ node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
 2. 起一个 throwaway profile 装一次真的：
 
    ```bash
-   dsh plugin --profile smoke add ./dsh-model-master-1.1.0.tgz
+   dsh plugin --profile smoke add ./dsh-model-master-1.1.1.tgz
    dsh --profile smoke --dump-config | grep dsh-model-master
    ```
 

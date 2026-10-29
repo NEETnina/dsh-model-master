@@ -113,6 +113,45 @@ test('the host never turns a failed check into a confident answer', () => {
   }
 })
 
+test('a blocked API falls back to a source that carries no quota', () => {
+  // This exists because the API alone proved unreliable in practice: on a
+  // filtered network api.github.com answers 404/403 or resets the connection,
+  // and the user is told "cannot confirm" for a question that a plain web
+  // request answers fine.
+  const fn = HOST.match(/async function fetchLatestRelease\(currentVersion\) \{[\s\S]*?\n\}/)
+  assert.ok(fn, 'fetchLatestRelease must be present')
+  const body = fn[0]
+
+  // The fallback hits the human-facing release URL, not the API.
+  assert.ok(
+    /https:\/\/github\.com\/\$\{UPDATE_REPO_SLUG\}\/releases\/latest/.test(body),
+    'the fallback must use the plain github.com release URL'
+  )
+  // It must not follow the redirect: the Location header is the whole answer,
+  // and following it downloads an HTML page for one string.
+  assert.ok(/redirect: 'manual'/.test(body), 'the fallback must read the redirect, not follow it')
+  // It must parse the tag out of the Location header.
+  assert.ok(body.includes('releases\\/tag\\/'), 'the fallback must extract the tag from the redirect target')
+  // The fallback runs only when the API produced nothing.
+  assert.ok(/if \(!latest\) \{/.test(body), 'the fallback must be gated on the API having failed')
+  // It must record which source answered.
+  assert.ok(body.includes("via = 'redirect'") && body.includes("via = 'api'"), 'the answering source must be recorded')
+})
+
+test('the fallback reports missing fields as missing, not as guesses', () => {
+  const fn = HOST.match(/async function fetchLatestRelease\(currentVersion\) \{[\s\S]*?\n\}/)[0]
+  // Notes and publishedAt only exist on the API path. When the redirect
+  // answered there is nothing truthful to put there, so they stay null.
+  assert.ok(
+    /releaseNotes = notes\.length > 0 \? notes\.slice\(0, 400\) : null/.test(fn),
+    'notes must come only from the API payload'
+  )
+  const redirectBlock = fn.match(/Source 2[\s\S]*?via = 'redirect'/)
+  assert.ok(redirectBlock, 'the redirect block must be identifiable')
+  assert.ok(!/releaseNotes\s*=/.test(redirectBlock[0]), 'the redirect path must not invent release notes')
+  assert.ok(!/publishedAt\s*=/.test(redirectBlock[0]), 'the redirect path must not invent a publish date')
+})
+
 test('the update payload exposes the fields the client renders', () => {
   // Exercise the real assembly rather than matching source text: a renamed
   // field has to fail here, and shorthand properties must not fool the check.
@@ -125,6 +164,7 @@ test('the update payload exposes the fields the client renders', () => {
     'releaseNotes',
     'publishedAt',
     'sourceKind',
+    'via',
     'error',
     'checkedAt',
     'stale'

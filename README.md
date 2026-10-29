@@ -197,11 +197,18 @@ dsh plugin --profile web remove dsh-model-master
 
 - **不收集任何遥测。** 没有分析、没有上报。
 - **不出本机。** 每个 HTTP 路由都有 loopback 围栏（`isAuthorized()`）：只接受 `localhost` / `127.0.0.1` / `::1` 的 Host，并校验 `Origin`。`localhost.evil.com` 这类前缀伪造会被拒绝。
-- **唯一的对外请求**是拉取 `https://openrouter.ai/api/v1/models`（玩家榜数据源），带 10 秒超时，且有去重 + 频率限制，不会变成 RPC 风暴。
-- **第二个对外请求**是版本检查：`GET https://api.github.com/repos/NEETnina/dsh-model-master/releases/latest`。
-  它是公开仓库的公开接口，**不带任何标识信息**，不发送本机版本号，也没有查询参数。同样带 10 秒超时，
-  结果缓存 6 小时（未认证配额为每小时每 IP 60 次），并发共享在途请求，手动检查另有 30 秒冷却。
-  它只读，不写、不上报、不追踪。
+- **第一个对外请求**是拉取 `https://openrouter.ai/api/v1/models`（榜单数据源），带 10 秒超时，且有去重 + 频率限制，不会变成 RPC 风暴。
+- **版本检查会用到两个地址**，按顺序尝试，**任一个成功即停止**：
+  1. `GET https://api.github.com/repos/NEETnina/dsh-model-master/releases/latest` —— 公开接口，信息最全（含发布说明与日期），但未认证配额只有每小时每 IP 60 次。
+  2. `GET https://github.com/NEETnina/dsh-model-master/releases/latest` —— 纯网页 302，**不走 API、无配额、无需认证**，只从 `Location` 头里读出版本号。
+
+  为什么要有第二个：实测中 `api.github.com` 会在网络受限时返回 **404**，而该 release 通过普通 HTTPS 完全可达 ——
+  只靠 API 的话，用户会看到「无法确认是否有新版本」，而问题其实出在链路上。**API 的 404 不再被当作最终结论**，
+  而是由第二个源来证实或推翻。第二个源拿不到发布说明与日期，这两项就如实留空，不猜。
+
+  两者都不带任何标识信息，不发送本机版本号，无查询参数，都带 10 秒超时。结果缓存 6 小时，
+  并发共享在途请求，手动检查另有 30 秒冷却。**都只读**，不写、不上报、不追踪。
+
 - 测速请求走 DSH **自己的** LLM provider 运行时，插件本身**不接触、不存储、不打印任何密钥**。
 
 ---
@@ -290,7 +297,7 @@ npm run format:check
 | 方式        | 用户侧命令                                                      | 需要构建授权                                 |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------- |
 | **npm**     | `dsh plugin --profile web add dsh-model-master`                 | 否（预构建产物）                             |
-| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.1.1.tgz`     | 否（预构建产物）                             |
+| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.1.2.tgz`     | 否（预构建产物）                             |
 | **git**     | `dsh plugin --profile web add github:NEETnina/dsh-model-master` | **是**（拉的是源码，pnpm 需授权 build 脚本） |
 
 因为本仓库是纯 JS、无构建步骤，git 安装虽然能跑，但**推荐 npm 或 tarball** —— 用户不必授予任何安装期脚本权限。
@@ -338,7 +345,7 @@ DSH **没有官方市场**。用户可以在 Plugins 页面打开实验特性 _C
       "icon": "icons/model-master.svg",
       "versions": [
         {
-          "version": "1.1.1",
+          "version": "1.1.2",
           "publishTimestamp": 1761536000,
           "source": { "type": "npm" },
           "engines": { "dsh": ">=0.2.0 <0.3.0" }
@@ -372,7 +379,7 @@ node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
 2. 起一个 throwaway profile 装一次真的：
 
    ```bash
-   dsh plugin --profile smoke add ./dsh-model-master-1.1.1.tgz
+   dsh plugin --profile smoke add ./dsh-model-master-1.1.2.tgz
    dsh --profile smoke --dump-config | grep dsh-model-master
    ```
 

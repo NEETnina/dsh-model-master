@@ -414,20 +414,118 @@ function saveUpdateCache(dataDir, payload) {
  * `hasUpdate: null` and an `error` string the UI can show verbatim.
  */
 async function fetchLatestRelease(currentVersion) {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 10000)
-  try {
-    const res = await fetch(`https://api.github.com/repos/${UPDATE_REPO_SLUG}/releases/latest`, {
-      signal: controller.signal,
-      headers: {
-        // GitHub rejects requests without one.
-        'User-Agent': 'DSH-Model-Master',
-        Accept: 'application/vnd.github+json'
-      }
-    })
+  // Two independent sources, because one is not enough on a filtered network.
+  //
+  //   api.github.com/repos/.../releases/latest  — richest (notes, date), but
+  //     rate-limited to 60/hour unauthenticated and, in practice, the first
+  //     thing to be blocked or answered with a stray status.
+  //   github.com/.../releases/latest            — a plain 302 to /releases/tag/x.
+  //     No API, no quota, no auth: it survives exactly the conditions that
+  //     break the first one.
+  //
+  // Either source answers the only question the UI asks ("is there something
+  // newer?"). Only the API can supply notes and a date, so those stay null when
+  // the fallback is what answered — a missing field is honest, a guessed one is
+  // not.
+  let latest = null
+  let releaseUrl = null
+  let releaseNotes = null
+  let publishedAt = null
+  let via = null
+  const failures = []
+  // Set when the API answered 404. Corroborated by a fallback that also finds
+  // no tag; overruled by a fallback that does.
+  let apiSaidNoRelease = false
 
-    // 404 is a real answer: the repository has no published release yet.
-    if (res.status === 404) {
+  // ── Source 1: the API ──
+  {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 10000)
+    try {
+      const res = await fetch(`https://api.github.com/repos/${UPDATE_REPO_SLUG}/releases/latest`, {
+        signal: controller.signal,
+        headers: {
+          // GitHub rejects requests without one.
+          'User-Agent': 'DSH-Model-Master',
+          Accept: 'application/vnd.github+json'
+        }
+      })
+
+      if (res.ok) {
+        const data = await res.json()
+        const tag = typeof data?.tag_name === 'string' ? data.tag_name.trim().replace(/^v/i, '') : ''
+        if (tag) {
+          latest = tag
+          releaseUrl = typeof data?.html_url === 'string' ? data.html_url : null
+          const notes = typeof data?.body === 'string' ? data.body.trim() : ''
+          // Trimmed: the UI shows a hint, not a changelog. The link has the rest.
+          releaseNotes = notes.length > 0 ? notes.slice(0, 400) : null
+          publishedAt = data?.published_at ? Date.parse(data.published_at) || null : null
+          via = 'api'
+        } else {
+          failures.push('release carried no tag')
+        }
+      } else {
+        // A 404 normally means "no published release", but it is NOT taken as
+        // final here. On a filtered network api.github.com returns 404 for a
+        // repository whose releases are perfectly reachable over plain HTTPS —
+        // observed on this very project. So remember it, and let the fallback
+        // corroborate or overrule it.
+        if (res.status === 404) apiSaidNoRelease = true
+        failures.push(
+          res.status === 404 ? 'api.github.com reported no release' : `api.github.com responded ${res.status}`
+        )
+      }
+    } catch (err) {
+      failures.push(
+        err?.name === 'AbortError' ? 'api.github.com timed out' : `api.github.com: ${err?.message || 'request failed'}`
+      )
+    } finally {
+      clearTimeout(timer)
+    }
+  }
+
+  // ── Source 2: the plain web redirect ──
+  if (!latest) {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 10000)
+    try {
+      const res = await fetch(`https://github.com/${UPDATE_REPO_SLUG}/releases/latest`, {
+        signal: controller.signal,
+        // Do not follow: the Location header is the answer, and following it
+        // would download a whole HTML page for one string.
+        redirect: 'manual',
+        headers: { 'User-Agent': 'DSH-Model-Master' }
+      })
+      const location = res.headers.get('location')
+      const match = location ? /\/releases\/tag\/([^/?#]+)/.exec(location) : null
+      if (match) {
+        const tag = decodeURIComponent(match[1]).trim().replace(/^v/i, '')
+        if (tag) {
+          latest = tag
+          releaseUrl = `https://github.com/${UPDATE_REPO_SLUG}/releases/tag/${match[1]}`
+          via = 'redirect'
+        } else {
+          failures.push('release tag was empty')
+        }
+      } else {
+        failures.push(`github.com did not redirect to a tag (HTTP ${res.status})`)
+      }
+    } catch (err) {
+      failures.push(
+        err?.name === 'AbortError' ? 'github.com timed out' : `github.com: ${err?.message || 'request failed'}`
+      )
+    } finally {
+      clearTimeout(timer)
+    }
+  }
+
+  // Neither source produced a tag.
+  if (!latest) {
+    // A 404 corroborated by a fallback that also found no tag: the repository
+    // really has published nothing. Reported as its own kind so the UI can say
+    // so rather than blaming the network.
+    if (apiSaidNoRelease) {
       return {
         hasUpdate: null,
         latest: null,
@@ -438,48 +536,7 @@ async function fetchLatestRelease(currentVersion) {
         error: 'No published release found'
       }
     }
-    if (!res.ok) {
-      return {
-        hasUpdate: null,
-        latest: null,
-        releaseUrl: null,
-        releaseNotes: null,
-        publishedAt: null,
-        sourceKind: 'offline',
-        error: `GitHub responded ${res.status}`
-      }
-    }
-
-    const data = await res.json()
-    const tag = typeof data?.tag_name === 'string' ? data.tag_name : ''
-    const latest = tag.trim().length > 0 ? tag.trim().replace(/^v/i, '') : null
-    const cmp = latest && currentVersion ? compareVersions(latest, currentVersion) : null
-
-    if (cmp === null) {
-      // A tag we cannot parse is not evidence of anything.
-      return {
-        hasUpdate: null,
-        latest,
-        releaseUrl: typeof data?.html_url === 'string' ? data.html_url : null,
-        releaseNotes: null,
-        publishedAt: data?.published_at ? Date.parse(data.published_at) || null : null,
-        sourceKind: 'unparsable',
-        error: latest ? `Cannot compare version "${latest}"` : 'Release carried no tag'
-      }
-    }
-
-    const notes = typeof data?.body === 'string' ? data.body.trim() : ''
-    return {
-      hasUpdate: cmp > 0,
-      latest,
-      releaseUrl: typeof data?.html_url === 'string' ? data.html_url : null,
-      // Trimmed: the UI shows a hint, not a changelog. The link has the rest.
-      releaseNotes: notes.length > 0 ? notes.slice(0, 400) : null,
-      publishedAt: data?.published_at ? Date.parse(data.published_at) || null : null,
-      sourceKind: 'live',
-      error: null
-    }
-  } catch (err) {
+    // Otherwise: say we could not tell, and say why for both sources.
     return {
       hasUpdate: null,
       latest: null,
@@ -487,10 +544,34 @@ async function fetchLatestRelease(currentVersion) {
       releaseNotes: null,
       publishedAt: null,
       sourceKind: 'offline',
-      error: err?.name === 'AbortError' ? 'Request timed out' : err?.message || 'Update check failed'
+      error: failures.join('; ') || 'Update check failed'
     }
-  } finally {
-    clearTimeout(timer)
+  }
+
+  const cmp = currentVersion ? compareVersions(latest, currentVersion) : null
+
+  if (cmp === null) {
+    // A tag we cannot parse is not evidence of anything.
+    return {
+      hasUpdate: null,
+      latest,
+      releaseUrl,
+      releaseNotes: null,
+      publishedAt: null,
+      sourceKind: 'unparsable',
+      error: `Cannot compare version "${latest}"`
+    }
+  }
+
+  return {
+    hasUpdate: cmp > 0,
+    latest,
+    releaseUrl,
+    releaseNotes,
+    publishedAt,
+    sourceKind: 'live',
+    via,
+    error: null
   }
 }
 
@@ -548,6 +629,9 @@ function resolveUpdatePayload(dataDir) {
     // 'pending' means "never checked yet"; the UI shows a checking state rather
     // than claiming the install is current.
     sourceKind: cached?.sourceKind ?? 'pending',
+    // Which source answered: 'api' or 'redirect'. Useful when a check fails on
+    // one path but not the other.
+    via: cached?.via ?? null,
     error: cached?.error ?? null,
     checkedAt: cached?.checkedAt ?? null,
     stale: !isFresh
@@ -1181,5 +1265,6 @@ export const __internals = {
   parseVersion,
   compareVersions,
   resolveUpdatePayload,
+  fetchLatestRelease,
   UPDATE_MIN_INTERVAL_MS
 }

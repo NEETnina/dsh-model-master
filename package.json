@@ -1,6 +1,6 @@
 {
   "name": "dsh-model-master",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "dsh-model-master（模型选择大师）for DeepSeek Harness — 15-language UI (top-15 world languages) — 保留 DSH 原生模型按钮与菜单，在原版狭小下拉列表即将弹出时无缝接管为 Spotlight 大面板。集成 TTFT/TPS 流式测速（失败如实展示、绝不编造数据）、原生渠道分组、⚡ 智能优选、全球百强榜（点击行搜本机渠道）；内置推理档位 FX（官方菜单推理等级行滑条 + 档位切换芯片能量闪动）；原生模型位被其它插件占用时自动出现工具行备用入口（防顶掉）。",
   "icon": "./icon.svg",
   "type": "module",

@@ -79,6 +79,24 @@ dsh-model-master 补齐三件事：
 - 点任意行 → 跳到本机搜索同名渠道，由你自己挑渠道（**不做自动匹配**，避免把榜单的模型错配到你本地的另一个渠道）。
 - 每日自动同步，可手动刷新；离线时展示本地缓存并明确标注。
 
+### 版本更新提示
+
+顶栏有一枚「检查更新」按钮，点一下就会去问 GitHub 有没有新版本。
+
+- **发现新版本**时，按钮变成蓝色胶囊 `有新版本 1.1.0`，点击直达该 release 页面。
+- **已是最新**时保持安静，不打扰。
+- **检测不到时如实说检测不到**。这一点是刻意的：`hasUpdate` 是三态 —— `true` / `false` / **`null`（未知）**。
+  网络不通、GitHub 限流、tag 无法解析时一律是 `null`，界面显示「无法确认是否有新版本」，
+  **绝不会把「没查到」显示成「已是最新」**。理由和测速那条一样：一句没验证过的「你已经是最新的」，
+  和编造一个 TPS 数字是同一种谎。
+
+工程上守两条纪律：
+
+- **不拖慢面板**：`GET /update` 只读本地缓存并立刻返回，刷新在后台进行；只有你手点按钮
+  （`POST /update/check`）才会等待网络。
+- **不滥用配额**：结果缓存 6 小时，并发调用共享同一个在途请求，手动检查另有 30 秒冷却 ——
+  GitHub 未认证接口每小时每 IP 只给 60 次。
+
 ### 15 语言界面
 
 English / 中文 / हिन्दी / Español / Français / العربية / বাংলা / Português / Русский / اردو / Bahasa Indonesia / Deutsch / 日本語 / 한국어 / Türkçe
@@ -150,6 +168,8 @@ dsh plugin --profile web remove dsh-model-master
 - **榜单只按真实字段建行。** 没有任何 benchmark 分数的模型直接不进榜（见 `buildLeaderboardFromOpenRouter()` 与 `tests/leaderboard.test.js`）。
 - **可审计。** 每次测速结果附带输出样本片段（`sample`，最多 120 字符）与 token 数来源（`tokensFromUsage`），以及实际下发的推理档位（`reasoningEffort`）。
 - **测速不受档位干扰。** 探针会通过 `prepareCall` 的 `configure` 回调，把推理档位显式钉在该模型**最低**的一档 —— 否则 DSH 会沿用会话当前档位（常常是 `high`），推理模型先"想"一大段，TTFT 被拉长、TPS 被压低，测出来的是档位的速度而不是模型的速度。
+- **版本检查同样不猜。** `hasUpdate` 是三态 `true` / `false` / `null`，网络失败或 tag 无法解析时是 `null`，
+  界面显示「无法确认是否有新版本」而不是「已是最新」。一句没验证过的"你是最新的"，和编造一个 TPS 数字是同一种谎。
 
 ---
 
@@ -161,6 +181,7 @@ dsh plugin --profile web remove dsh-model-master
 | ------------------------ | ----------------------------------------------------------------- |
 | `leaderboard-cache.json` | 榜单快照，含 `updatedAt` / `surveyDate` / `sourceKind` / `models` |
 | `benchmark-results.json` | 本机测速结果，键为 `provider:model`                               |
+| `update-check.json`      | 上次版本检查结果，含 `checkedAt` / `latest` / `hasUpdate`         |
 
 没有 API key、没有硬编码路径 —— 全部由 DSH 环境动态解析。
 
@@ -171,6 +192,10 @@ dsh plugin --profile web remove dsh-model-master
 - **不收集任何遥测。** 没有分析、没有上报。
 - **不出本机。** 每个 HTTP 路由都有 loopback 围栏（`isAuthorized()`）：只接受 `localhost` / `127.0.0.1` / `::1` 的 Host，并校验 `Origin`。`localhost.evil.com` 这类前缀伪造会被拒绝。
 - **唯一的对外请求**是拉取 `https://openrouter.ai/api/v1/models`（玩家榜数据源），带 10 秒超时，且有去重 + 频率限制，不会变成 RPC 风暴。
+- **第二个对外请求**是版本检查：`GET https://api.github.com/repos/NEETnina/dsh-model-master/releases/latest`。
+  它是公开仓库的公开接口，**不带任何标识信息**，不发送本机版本号，也没有查询参数。同样带 10 秒超时，
+  结果缓存 6 小时（未认证配额为每小时每 IP 60 次），并发共享在途请求，手动检查另有 30 秒冷却。
+  它只读，不写、不上报、不追踪。
 - 测速请求走 DSH **自己的** LLM provider 运行时，插件本身**不接触、不存储、不打印任何密钥**。
 
 ---
@@ -184,9 +209,28 @@ dsh plugin --profile web remove dsh-model-master
 | `GET`  | `/catalog`             | 提供商与模型目录 + DSH 持久化的默认选择                |
 | `GET`  | `/leaderboard`         | 榜单快照；过旧时后台刷新                               |
 | `POST` | `/leaderboard/refresh` | 强制同步（10s 冷却）                                   |
+| `GET`  | `/update`              | 版本检查结果（读缓存，过旧时后台刷新）                 |
+| `POST` | `/update/check`        | 立即检查更新（30s 冷却）                               |
 | `GET`  | `/results`             | 本机测速结果                                           |
 | `POST` | `/results/clear`       | 清一条（`{key}`）或全部（`{}`）                        |
 | `POST` | `/probe`               | 真实测速：`{provider, model, samples?}`，`samples` 1–5 |
+
+`/update` 返回示例（**`hasUpdate` 是三态**，见下）：
+
+```json
+{
+  "current": "1.0.0",
+  "latest": "1.1.0",
+  "hasUpdate": true,
+  "releaseUrl": "https://github.com/NEETnina/dsh-model-master/releases/tag/v1.1.0",
+  "releaseNotes": "首个公开版本…",
+  "publishedAt": 1761536000000,
+  "sourceKind": "live",
+  "error": null,
+  "checkedAt": 1761536000000,
+  "stale": false
+}
+```
 
 `/probe` 返回示例：
 
@@ -240,7 +284,7 @@ npm run format:check
 | 方式        | 用户侧命令                                                      | 需要构建授权                                 |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------- |
 | **npm**     | `dsh plugin --profile web add dsh-model-master`                 | 否（预构建产物）                             |
-| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.0.0.tgz`     | 否（预构建产物）                             |
+| **tarball** | `dsh plugin --profile web add ./dsh-model-master-1.1.0.tgz`     | 否（预构建产物）                             |
 | **git**     | `dsh plugin --profile web add github:NEETnina/dsh-model-master` | **是**（拉的是源码，pnpm 需授权 build 脚本） |
 
 因为本仓库是纯 JS、无构建步骤，git 安装虽然能跑，但**推荐 npm 或 tarball** —— 用户不必授予任何安装期脚本权限。
@@ -288,7 +332,7 @@ DSH **没有官方市场**。用户可以在 Plugins 页面打开实验特性 _C
       "icon": "icons/model-master.svg",
       "versions": [
         {
-          "version": "1.0.0",
+          "version": "1.1.0",
           "publishTimestamp": 1761536000,
           "source": { "type": "npm" },
           "engines": { "dsh": ">=0.2.0 <0.3.0" }
@@ -322,7 +366,7 @@ node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
 2. 起一个 throwaway profile 装一次真的：
 
    ```bash
-   dsh plugin --profile smoke add ./dsh-model-master-1.0.0.tgz
+   dsh plugin --profile smoke add ./dsh-model-master-1.1.0.tgz
    dsh --profile smoke --dump-config | grep dsh-model-master
    ```
 

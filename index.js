@@ -312,6 +312,248 @@ function surveyLeaderboardShared(dataDir, { force = false } = {}) {
   return surveyInFlight
 }
 
+// ── Version update check ─────────────────────────────────────────────────────
+//
+// The panel can tell the user that a newer release exists. Two rules shape it:
+//
+//   1. It never invents an answer. When GitHub is unreachable, `hasUpdate` is
+//      null and the payload says offline — "unknown" is not "up to date", and
+//      reporting an unverified "latest" is exactly the class of lie this plugin
+//      refuses to tell about benchmark numbers.
+//   2. It stays cheap. GitHub allows 60 unauthenticated requests per hour per
+//      IP, so a result is cached for six hours and concurrent callers share one
+//      in-flight request — the same shape as the leaderboard survey.
+
+const UPDATE_REPO_SLUG = 'NEETnina/dsh-model-master'
+const UPDATE_CACHE_FILE = 'update-check.json'
+const UPDATE_MIN_INTERVAL_MS = 6 * 60 * 60 * 1000
+// A user-triggered check still keeps a short cooldown so a click-spamming user
+// cannot burn the hourly quota in a few seconds.
+const UPDATE_FORCE_MIN_INTERVAL_MS = 30 * 1000
+
+/**
+ * Read this plugin's own version from the package.json beside it.
+ * Returns null rather than guessing when the file is missing or malformed.
+ */
+function readOwnVersion() {
+  try {
+    const raw = fs.readFileSync(path.resolve(__dirname, 'package.json'), 'utf8')
+    const pkg = JSON.parse(raw)
+    const v = typeof pkg.version === 'string' ? pkg.version.trim() : ''
+    return v.length > 0 ? v : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Parse a semver-ish string into comparable parts.
+ *
+ * Accepts an optional leading `v` (GitHub tags carry one) and an optional
+ * `-prerelease` suffix. Returns null when the string is not a version at all,
+ * so callers can distinguish "older" from "could not tell".
+ */
+function parseVersion(raw) {
+  if (typeof raw !== 'string') return null
+  const s = raw.trim().replace(/^v/i, '')
+  const m = /^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/.exec(s)
+  if (!m) return null
+  return {
+    major: Number(m[1]),
+    minor: Number(m[2]),
+    patch: Number(m[3]),
+    prerelease: m[4] ?? null
+  }
+}
+
+/**
+ * Compare two version strings.
+ * Returns -1 (a older), 0 (equal), 1 (a newer), or null when either side is
+ * unparseable. A release outranks its own prereleases, per semver.
+ */
+function compareVersions(a, b) {
+  const pa = parseVersion(a)
+  const pb = parseVersion(b)
+  if (!pa || !pb) return null
+
+  for (const key of ['major', 'minor', 'patch']) {
+    if (pa[key] !== pb[key]) return pa[key] < pb[key] ? -1 : 1
+  }
+
+  if (pa.prerelease && !pb.prerelease) return -1
+  if (!pa.prerelease && pb.prerelease) return 1
+  if (pa.prerelease && pb.prerelease) {
+    if (pa.prerelease === pb.prerelease) return 0
+    return pa.prerelease < pb.prerelease ? -1 : 1
+  }
+  return 0
+}
+
+/** Read the last check result from disk. Returns null when absent or unusable. */
+function loadUpdateCache(dataDir) {
+  try {
+    const cachePath = path.resolve(dataDir, UPDATE_CACHE_FILE)
+    if (!fs.existsSync(cachePath)) return null
+    const parsed = JSON.parse(fs.readFileSync(cachePath, 'utf8'))
+    return parsed && typeof parsed === 'object' ? parsed : null
+  } catch {
+    return null
+  }
+}
+
+function saveUpdateCache(dataDir, payload) {
+  try {
+    fs.writeFileSync(path.resolve(dataDir, UPDATE_CACHE_FILE), JSON.stringify(payload, null, 2), 'utf8')
+  } catch {}
+}
+
+/**
+ * Ask GitHub for the newest published release.
+ *
+ * Never throws and never fabricates: every failure path returns a payload with
+ * `hasUpdate: null` and an `error` string the UI can show verbatim.
+ */
+async function fetchLatestRelease(currentVersion) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 10000)
+  try {
+    const res = await fetch(`https://api.github.com/repos/${UPDATE_REPO_SLUG}/releases/latest`, {
+      signal: controller.signal,
+      headers: {
+        // GitHub rejects requests without one.
+        'User-Agent': 'DSH-Model-Master',
+        Accept: 'application/vnd.github+json'
+      }
+    })
+
+    // 404 is a real answer: the repository has no published release yet.
+    if (res.status === 404) {
+      return {
+        hasUpdate: null,
+        latest: null,
+        releaseUrl: null,
+        releaseNotes: null,
+        publishedAt: null,
+        sourceKind: 'no-release',
+        error: 'No published release found'
+      }
+    }
+    if (!res.ok) {
+      return {
+        hasUpdate: null,
+        latest: null,
+        releaseUrl: null,
+        releaseNotes: null,
+        publishedAt: null,
+        sourceKind: 'offline',
+        error: `GitHub responded ${res.status}`
+      }
+    }
+
+    const data = await res.json()
+    const tag = typeof data?.tag_name === 'string' ? data.tag_name : ''
+    const latest = tag.trim().length > 0 ? tag.trim().replace(/^v/i, '') : null
+    const cmp = latest && currentVersion ? compareVersions(latest, currentVersion) : null
+
+    if (cmp === null) {
+      // A tag we cannot parse is not evidence of anything.
+      return {
+        hasUpdate: null,
+        latest,
+        releaseUrl: typeof data?.html_url === 'string' ? data.html_url : null,
+        releaseNotes: null,
+        publishedAt: data?.published_at ? Date.parse(data.published_at) || null : null,
+        sourceKind: 'unparsable',
+        error: latest ? `Cannot compare version "${latest}"` : 'Release carried no tag'
+      }
+    }
+
+    const notes = typeof data?.body === 'string' ? data.body.trim() : ''
+    return {
+      hasUpdate: cmp > 0,
+      latest,
+      releaseUrl: typeof data?.html_url === 'string' ? data.html_url : null,
+      // Trimmed: the UI shows a hint, not a changelog. The link has the rest.
+      releaseNotes: notes.length > 0 ? notes.slice(0, 400) : null,
+      publishedAt: data?.published_at ? Date.parse(data.published_at) || null : null,
+      sourceKind: 'live',
+      error: null
+    }
+  } catch (err) {
+    return {
+      hasUpdate: null,
+      latest: null,
+      releaseUrl: null,
+      releaseNotes: null,
+      publishedAt: null,
+      sourceKind: 'offline',
+      error: err?.name === 'AbortError' ? 'Request timed out' : err?.message || 'Update check failed'
+    }
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+let updateInFlight = null
+let updateLastAt = 0
+
+/** De-duplicating, rate-limited wrapper around fetchLatestRelease. */
+function checkForUpdateShared(dataDir, { force = false, currentVersion = null } = {}) {
+  if (updateInFlight) return updateInFlight
+  const minInterval = force ? UPDATE_FORCE_MIN_INTERVAL_MS : UPDATE_MIN_INTERVAL_MS
+  if (Date.now() - updateLastAt < minInterval) return Promise.resolve(null)
+
+  updateInFlight = fetchLatestRelease(currentVersion)
+    .then(result => {
+      updateLastAt = Date.now()
+      const stamped = { ...result, checkedAt: updateLastAt, currentVersion }
+      saveUpdateCache(dataDir, stamped)
+      return stamped
+    })
+    .finally(() => {
+      updateInFlight = null
+    })
+  return updateInFlight
+}
+
+/**
+ * Assemble the payload the UI renders.
+ *
+ * `hasUpdate` is a three-state field on purpose: true, false, or null when we
+ * genuinely do not know. The client must not collapse null into false — an
+ * unverified "you are up to date" is the same class of lie as a fabricated
+ * benchmark number.
+ */
+function resolveUpdatePayload(dataDir) {
+  const current = readOwnVersion()
+  const cached = loadUpdateCache(dataDir)
+  const isFresh = cached && Date.now() - (cached.checkedAt ?? 0) < UPDATE_MIN_INTERVAL_MS
+
+  // Recompute against the version actually installed right now: the user may
+  // have updated since this cache was written, which would otherwise keep
+  // showing an update badge for a release they already run.
+  let hasUpdate = null
+  if (cached && typeof cached.latest === 'string' && current) {
+    const cmp = compareVersions(cached.latest, current)
+    hasUpdate = cmp === null ? null : cmp > 0
+  }
+
+  return {
+    current,
+    latest: cached?.latest ?? null,
+    hasUpdate,
+    releaseUrl: cached?.releaseUrl ?? null,
+    releaseNotes: cached?.releaseNotes ?? null,
+    publishedAt: cached?.publishedAt ?? null,
+    // 'pending' means "never checked yet"; the UI shows a checking state rather
+    // than claiming the install is current.
+    sourceKind: cached?.sourceKind ?? 'pending',
+    error: cached?.error ?? null,
+    checkedAt: cached?.checkedAt ?? null,
+    stale: !isFresh
+  }
+}
+
 /** Read configured providers and models directly from DSH LLM service */
 async function getCatalog(llmService, logger) {
   if (!llmService || typeof llmService.listProviders !== 'function') {
@@ -786,6 +1028,30 @@ export function apply(ctx) {
       }
 
       try {
+        // ── Version update check ──
+        //
+        // Always answers immediately from cache and refreshes in the background,
+        // so opening the panel never waits on GitHub. `sourceKind: 'pending'`
+        // with `hasUpdate: null` is the honest answer on a cold start.
+        if (method === 'GET' && routePath === '/update') {
+          const payload = resolveUpdatePayload(dataDir)
+          if (payload.stale) {
+            // Fire-and-forget: the response is already on its way. The next
+            // panel open picks up the refreshed cache.
+            checkForUpdateShared(dataDir, { currentVersion: payload.current }).catch(() => {})
+          }
+          return send(200, payload)
+        }
+
+        // Explicit user-triggered check. Awaits the result (unlike GET) so the
+        // button can report a real outcome, but keeps a cooldown so repeated
+        // clicks cannot exhaust GitHub's hourly quota.
+        if (method === 'POST' && routePath === '/update/check') {
+          const current = readOwnVersion()
+          await checkForUpdateShared(dataDir, { force: true, currentVersion: current })
+          return send(200, resolveUpdatePayload(dataDir))
+        }
+
         // ── Native Provider & Model Catalog API ──
         if (method === 'GET' && routePath === '/catalog') {
           const llm = resolveLlm(scope)
@@ -909,4 +1175,11 @@ export function apply(ctx) {
 }
 
 // Pure helpers exposed for unit tests (node --test tests/)
-export const __internals = { buildLeaderboardFromOpenRouter, localDateStamp }
+export const __internals = {
+  buildLeaderboardFromOpenRouter,
+  localDateStamp,
+  parseVersion,
+  compareVersions,
+  resolveUpdatePayload,
+  UPDATE_MIN_INTERVAL_MS
+}

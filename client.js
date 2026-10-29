@@ -129,6 +129,13 @@ window.__ModuleLoader__.load({
       closeTitle: '关闭 (Esc)',
       authorLabel: '我',
       authorStarTip: '点个',
+      updateBadge: '有新版本 {0}',
+      updateAvailableTip: '发现新版本 {0}，点击查看',
+      updateChecking: '正在检查更新…',
+      updateUpToDate: '已是最新版本',
+      updateUnknownTip: '无法确认是否有新版本',
+      updateBtnTitle: '检查更新',
+      updateReleaseNotes: '查看发布说明',
       close: '关闭',
       themeToLight: '当前：明亮主题，点击切换到暗黑',
       themeToDark: '当前：暗黑主题，点击切换到明亮',
@@ -279,6 +286,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Close (Esc)',
       authorLabel: 'Me',
       authorStarTip: 'Star it',
+      updateBadge: 'v{0} available',
+      updateAvailableTip: 'Version {0} is available — click to view',
+      updateChecking: 'Checking for updates…',
+      updateUpToDate: 'Up to date',
+      updateUnknownTip: 'Could not determine whether an update exists',
+      updateBtnTitle: 'Check for updates',
+      updateReleaseNotes: 'View release notes',
       close: 'Close',
       themeToLight: 'Light theme — click for dark',
       themeToDark: 'Dark theme — click for light',
@@ -421,6 +435,13 @@ window.__ModuleLoader__.load({
       closeTitle: '閉じる (Esc)',
       authorLabel: '私',
       authorStarTip: 'スター',
+      updateBadge: 'v{0} が利用可能',
+      updateAvailableTip: '新しいバージョン {0} があります。クリックして表示',
+      updateChecking: '更新を確認中…',
+      updateUpToDate: '最新版です',
+      updateUnknownTip: '更新の有無を確認できませんでした',
+      updateBtnTitle: '更新を確認',
+      updateReleaseNotes: 'リリースノートを見る',
       close: '閉じる',
       themeToLight: '現在ライト、クリックでダークへ',
       themeToDark: '現在ダーク、クリックでライトへ',
@@ -562,6 +583,13 @@ window.__ModuleLoader__.load({
       closeTitle: '닫기 (Esc)',
       authorLabel: '我',
       authorStarTip: '별',
+      updateBadge: 'v{0} 사용 가능',
+      updateAvailableTip: '새 버전 {0}이(가) 있습니다. 클릭하여 확인',
+      updateChecking: '업데이트 확인 중…',
+      updateUpToDate: '최신 버전입니다',
+      updateUnknownTip: '업데이트 여부를 확인할 수 없습니다',
+      updateBtnTitle: '업데이트 확인',
+      updateReleaseNotes: '릴리스 노트 보기',
       close: '닫기',
       themeToLight: '현재 라이트, 클릭 시 다크',
       themeToDark: '현재 다크, 클릭 시 라이트',
@@ -703,6 +731,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Schließen (Esc)',
       authorLabel: 'Ich',
       authorStarTip: 'Stern',
+      updateBadge: 'v{0} verfügbar',
+      updateAvailableTip: 'Version {0} ist verfügbar – zum Ansehen klicken',
+      updateChecking: 'Suche nach Updates…',
+      updateUpToDate: 'Aktuell',
+      updateUnknownTip: 'Es konnte nicht festgestellt werden, ob ein Update vorliegt',
+      updateBtnTitle: 'Nach Updates suchen',
+      updateReleaseNotes: 'Versionshinweise ansehen',
       close: 'Schließen',
       themeToLight: 'Hell aktiv — Klick für dunkel',
       themeToDark: 'Dunkel aktiv — Klick für hell',
@@ -845,6 +880,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Fermer (Échap)',
       authorLabel: 'Moi',
       authorStarTip: 'Étoile',
+      updateBadge: 'v{0} disponible',
+      updateAvailableTip: 'La version {0} est disponible — cliquez pour voir',
+      updateChecking: 'Recherche de mises à jour…',
+      updateUpToDate: 'À jour',
+      updateUnknownTip: 'Impossible de déterminer si une mise à jour existe',
+      updateBtnTitle: 'Rechercher des mises à jour',
+      updateReleaseNotes: 'Voir les notes de version',
       close: 'Fermer',
       themeToLight: 'Thème clair — cliquer pour sombre',
       themeToDark: 'Thème sombre — cliquer pour clair',
@@ -988,6 +1030,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Cerrar (Esc)',
       authorLabel: 'Yo',
       authorStarTip: 'Estrella',
+      updateBadge: 'v{0} disponible',
+      updateAvailableTip: 'La versión {0} está disponible — haz clic para ver',
+      updateChecking: 'Buscando actualizaciones…',
+      updateUpToDate: 'Actualizado',
+      updateUnknownTip: 'No se pudo determinar si hay una actualización',
+      updateBtnTitle: 'Buscar actualizaciones',
+      updateReleaseNotes: 'Ver notas de la versión',
       close: 'Cerrar',
       themeToLight: 'Tema claro — pulsa para oscuro',
       themeToDark: 'Tema oscuro — pulsa para claro',
@@ -1131,6 +1180,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Fechar (Esc)',
       authorLabel: 'Eu',
       authorStarTip: 'Estrela',
+      updateBadge: 'v{0} disponível',
+      updateAvailableTip: 'A versão {0} está disponível — clique para ver',
+      updateChecking: 'Procurando atualizações…',
+      updateUpToDate: 'Atualizado',
+      updateUnknownTip: 'Não foi possível determinar se há atualização',
+      updateBtnTitle: 'Procurar atualizações',
+      updateReleaseNotes: 'Ver notas da versão',
       close: 'Fechar',
       themeToLight: 'Tema claro — clique para escuro',
       themeToDark: 'Tema escuro — clique para claro',
@@ -1274,6 +1330,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Закрыть (Esc)',
       authorLabel: 'Я',
       authorStarTip: 'Звезда',
+      updateBadge: 'доступна v{0}',
+      updateAvailableTip: 'Доступна версия {0} — нажмите, чтобы посмотреть',
+      updateChecking: 'Проверка обновлений…',
+      updateUpToDate: 'Обновлений нет',
+      updateUnknownTip: 'Не удалось определить наличие обновления',
+      updateBtnTitle: 'Проверить обновления',
+      updateReleaseNotes: 'Смотреть примечания к выпуску',
       close: 'Закрыть',
       themeToLight: 'Светлая тема — щёлкните для тёмной',
       themeToDark: 'Тёмная тема — щёлкните для светлой',
@@ -1417,6 +1480,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'إغلاق (Esc)',
       authorLabel: 'أنا',
       authorStarTip: 'نجمة',
+      updateBadge: 'الإصدار {0} متاح',
+      updateAvailableTip: 'الإصدار {0} متاح — انقر للعرض',
+      updateChecking: 'جارٍ التحقق من التحديثات…',
+      updateUpToDate: 'محدَّث',
+      updateUnknownTip: 'تعذّر تحديد ما إذا كان هناك تحديث',
+      updateBtnTitle: 'التحقق من التحديثات',
+      updateReleaseNotes: 'عرض ملاحظات الإصدار',
       close: 'إغلاق',
       themeToLight: 'الفاتح مفعّل — انقر للداكن',
       themeToDark: 'الداكن مفعّل — انقر للفاتح',
@@ -1558,6 +1628,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'बंद करें (Esc)',
       authorLabel: 'मैं',
       authorStarTip: 'स्टार',
+      updateBadge: 'v{0} उपलब्ध',
+      updateAvailableTip: 'संस्करण {0} उपलब्ध है — देखने के लिए क्लिक करें',
+      updateChecking: 'अपडेट की जाँच हो रही है…',
+      updateUpToDate: 'अद्यतित',
+      updateUnknownTip: 'यह निर्धारित नहीं हो सका कि कोई अपडेट है या नहीं',
+      updateBtnTitle: 'अपडेट जाँचें',
+      updateReleaseNotes: 'रिलीज़ नोट्स देखें',
       close: 'बंद करें',
       themeToLight: 'लाइट थीम — डार्क के लिए क्लिक',
       themeToDark: 'डार्क थीम — लाइट के लिए क्लिक',
@@ -1699,6 +1776,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'বন্ধ (Esc)',
       authorLabel: 'আমি',
       authorStarTip: 'স্টার',
+      updateBadge: 'v{0} উপলব্ধ',
+      updateAvailableTip: 'সংস্করণ {0} উপলব্ধ — দেখতে ক্লিক করুন',
+      updateChecking: 'আপডেট যাচাই করা হচ্ছে…',
+      updateUpToDate: 'হালনাগাদ',
+      updateUnknownTip: 'আপডেট আছে কিনা তা নির্ধারণ করা যায়নি',
+      updateBtnTitle: 'আপডেট যাচাই করুন',
+      updateReleaseNotes: 'রিলিজ নোট দেখুন',
       close: 'বন্ধ',
       themeToLight: 'লাইট থিম — ডার্কের জন্য ক্লিক',
       themeToDark: 'ডার্ক থিম — লাইটের জন্য ক্লিক',
@@ -1841,6 +1925,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'بند کریں (Esc)',
       authorLabel: 'میں',
       authorStarTip: 'اسٹار',
+      updateBadge: 'v{0} دستیاب',
+      updateAvailableTip: 'ورژن {0} دستیاب ہے — دیکھنے کے لیے کلک کریں',
+      updateChecking: 'اپ ڈیٹ کی جانچ ہو رہی ہے…',
+      updateUpToDate: 'تازہ ترین',
+      updateUnknownTip: 'یہ طے نہیں ہو سکا کہ کوئی اپ ڈیٹ ہے یا نہیں',
+      updateBtnTitle: 'اپ ڈیٹ جانچیں',
+      updateReleaseNotes: 'ریلیز نوٹس دیکھیں',
       close: 'بند کریں',
       themeToLight: 'ہلکا موڈ — گہرا کرنے کلک کریں',
       themeToDark: 'گہرا موڈ — ہلکا کرنے کلک کریں',
@@ -1982,6 +2073,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Tutup (Esc)',
       authorLabel: 'Saya',
       authorStarTip: 'Bintang',
+      updateBadge: 'v{0} tersedia',
+      updateAvailableTip: 'Versi {0} tersedia — klik untuk melihat',
+      updateChecking: 'Memeriksa pembaruan…',
+      updateUpToDate: 'Terbaru',
+      updateUnknownTip: 'Tidak dapat memastikan apakah ada pembaruan',
+      updateBtnTitle: 'Periksa pembaruan',
+      updateReleaseNotes: 'Lihat catatan rilis',
       close: 'Tutup',
       themeToLight: 'Tema terang — klik untuk gelap',
       themeToDark: 'Tema gelap — klik untuk terang',
@@ -2123,6 +2221,13 @@ window.__ModuleLoader__.load({
       closeTitle: 'Kapat (Esc)',
       authorLabel: 'Ben',
       authorStarTip: 'Yıldız',
+      updateBadge: 'v{0} mevcut',
+      updateAvailableTip: '{0} sürümü mevcut — görüntülemek için tıklayın',
+      updateChecking: 'Güncellemeler denetleniyor…',
+      updateUpToDate: 'Güncel',
+      updateUnknownTip: 'Güncelleme olup olmadığı belirlenemedi',
+      updateBtnTitle: 'Güncellemeleri denetle',
+      updateReleaseNotes: 'Sürüm notlarını görüntüle',
       close: 'Kapat',
       themeToLight: 'Açık tema — koyu için tıkla',
       themeToDark: 'Koyu tema — açık için tıkla',
@@ -2549,6 +2654,83 @@ window.__ModuleLoader__.load({
       .dmm-star-btn svg {
         flex-shrink: 0;
         filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.55));
+      }
+
+      /* ── Update indicator ──
+         Quiet by default: most of the time there is nothing to report, and a
+         permanent badge would train the eye to ignore it. It only takes on
+         colour once a newer release actually exists. */
+      .dmm-update-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: 26px;
+        padding: 0 9px;
+        border-radius: 13px;
+        border: 1px solid var(--dmm-border);
+        background: transparent;
+        color: var(--dmm-text-muted);
+        font-size: 11.5px;
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          color 0.14s ease,
+          border-color 0.14s ease,
+          background 0.14s ease;
+      }
+      /* The label is what makes this discoverable; above a narrow breakpoint it
+         is always shown. Long translations are dropped rather than allowed to
+         squeeze the header — the icon and tooltip still carry the meaning.
+         The badge state keeps its label at every width: the version number is
+         the whole point of it. */
+      @media (max-width: 760px) {
+        .dmm-update-btn:not(.has-update) {
+          padding: 0 6px;
+        }
+        .dmm-update-btn:not(.has-update) .dmm-update-label {
+          display: none;
+        }
+      }
+      .dmm-update-btn:hover {
+        color: var(--dmm-text-title);
+        border-color: var(--dmm-accent);
+      }
+      .dmm-update-btn:focus-visible {
+        outline: 2px solid var(--dmm-accent);
+        outline-offset: 2px;
+      }
+      .dmm-update-btn[disabled] {
+        cursor: default;
+        opacity: 0.7;
+      }
+      .dmm-update-btn.checking svg {
+        animation: dmmSpin 0.9s linear infinite;
+      }
+      @keyframes dmmSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      /* The one state worth interrupting for. */
+      .dmm-update-btn.has-update {
+        padding: 0 10px;
+        color: #fff;
+        border-color: transparent;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        box-shadow: 0 1px 2px rgba(37, 99, 235, 0.35);
+      }
+      .dmm-update-btn.has-update:hover {
+        filter: brightness(1.1);
+        box-shadow: 0 3px 8px rgba(37, 99, 235, 0.45);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .dmm-update-btn.checking svg {
+          animation: none;
+        }
       }
 
       /* ── Icon button (theme toggle & friends) ── */
@@ -3722,7 +3904,10 @@ window.__ModuleLoader__.load({
       catalogStatus,
       catalogError,
       onRetryCatalog,
-      lastBatchSummary
+      lastBatchSummary,
+      updateInfo,
+      updateChecking,
+      onCheckUpdate
     }) {
       const [theme, setTheme] = useState(() => {
         try {
@@ -4246,6 +4431,52 @@ window.__ModuleLoader__.load({
               h(
                 'div',
                 { className: 'dmm-header-right' },
+                // Update indicator. Three honest states, never two:
+                //   newer release exists -> a badge linking to that release
+                //   confirmed current    -> a plain, quiet check button
+                //   unknown              -> the same button, and the tooltip says
+                //                           so; it never claims "up to date"
+                // `hasUpdate` is null on a cold start or after a failed check,
+                // and render must not read null as false.
+                (() => {
+                  const info = updateInfo
+                  const hasUpdate = info?.hasUpdate === true
+                  const title = updateChecking
+                    ? t('updateChecking')
+                    : hasUpdate
+                      ? t('updateAvailableTip', [info.latest])
+                      : info?.hasUpdate === false
+                        ? t('updateUpToDate')
+                        : t('updateUnknownTip')
+
+                  if (hasUpdate && info.releaseUrl) {
+                    return h(
+                      'a',
+                      {
+                        className: 'dmm-update-btn has-update',
+                        href: info.releaseUrl,
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                        title
+                      },
+                      IcoExternal(11),
+                      h('span', { className: 'dmm-update-label' }, t('updateBadge', [info.latest]))
+                    )
+                  }
+
+                  return h(
+                    'button',
+                    {
+                      className: `dmm-update-btn ${updateChecking ? 'checking' : ''}`,
+                      title,
+                      'aria-label': t('updateBtnTitle'),
+                      disabled: updateChecking,
+                      onClick: onCheckUpdate
+                    },
+                    IcoRefresh(12),
+                    h('span', { className: 'dmm-update-label' }, t('updateBtnTitle'))
+                  )
+                })(),
                 // Leaderboard entry grouped with the other header actions.
                 // Highlight only when the board is actually on screen (a
                 // search takes over the content area); clicking always
@@ -5253,6 +5484,11 @@ window.__ModuleLoader__.load({
       const [testingKeys, setTestingKeys] = useState(new Set())
       const [isBatchTesting, setIsBatchTesting] = useState(false)
       const [leaderboardData, setLeaderboardData] = useState(null)
+      // Version update check. `hasUpdate` is deliberately three-state: true,
+      // false, or null when the host could not tell. null must never render as
+      // "up to date" — see resolveUpdatePayload() in index.js.
+      const [updateInfo, setUpdateInfo] = useState(null)
+      const [updateChecking, setUpdateChecking] = useState(false)
       const [hostDefault, setHostDefault] = useState(null)
       // Probe mode: 1 = quick single run, 3 = median of three (noise-resistant)
       const [probeSamples, setProbeSamples] = useState(() => {
@@ -5378,6 +5614,15 @@ window.__ModuleLoader__.load({
           .then(res => res.json())
           .then(data => {
             if (data) setLeaderboardData(data)
+          })
+          .catch(() => {})
+
+        // Cached snapshot only — the host refreshes in the background, so this
+        // never makes the panel wait on GitHub.
+        fetch('/api/model-master/update')
+          .then(res => res.json())
+          .then(data => {
+            if (data) setUpdataInfo(data)
           })
           .catch(() => {})
 
@@ -5594,6 +5839,27 @@ window.__ModuleLoader__.load({
           setIsRefreshingLeaderboard(false)
         }
       }, [isRefreshingLeaderboard])
+
+      // Manual update check. Awaits the host, which awaits GitHub, so this can
+      // be slow — hence the explicit `updateChecking` state. On any failure we
+      // keep whatever we had rather than downgrading to a confident "up to date".
+      const handleCheckUpdate = useCallback(async () => {
+        if (updateChecking) return false
+        setUpdateChecking(true)
+        try {
+          const res = await fetch('/api/model-master/update/check', { method: 'POST' })
+          if (!res.ok) return false
+          const data = await res.json()
+          if (!data) return false
+          setUpdateInfo(data)
+          return data.hasUpdate === true
+        } catch (err) {
+          console.error('[model-master] Failed to check for updates:', err)
+          return false
+        } finally {
+          setUpdateChecking(false)
+        }
+      }, [updateChecking])
 
       // Clear one saved benchmark entry (optimistic local removal; server sync best-effort)
       const handleClearResult = useCallback(key => {
@@ -5859,7 +6125,10 @@ window.__ModuleLoader__.load({
               catalogStatus,
               catalogError,
               onRetryCatalog: fetchBackendCatalog,
-              lastBatchSummary
+              lastBatchSummary,
+              updateInfo,
+              updateChecking,
+              onCheckUpdate: handleCheckUpdate
             })
           : null
       )

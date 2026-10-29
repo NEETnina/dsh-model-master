@@ -330,6 +330,20 @@ const UPDATE_MIN_INTERVAL_MS = 6 * 60 * 60 * 1000
 // A user-triggered check still keeps a short cooldown so a click-spamming user
 // cannot burn the hourly quota in a few seconds.
 const UPDATE_FORCE_MIN_INTERVAL_MS = 30 * 1000
+// The redirect source is served through GitHub's web cache and can lag the API
+// by minutes: measured right after a release, api.github.com already said
+// v1.1.2 while github.com still redirected to v1.1.1.
+//
+// A lagging answer can only ever UNDER-report, so it can never invent an update
+// that does not exist — the worst case is a delayed notification. Treat such an
+// answer as expiring an hour sooner, so the authoritative source is re-asked
+// well before the full six hours are up.
+const UPDATE_FALLBACK_TTL_MS = 60 * 60 * 1000
+
+/** How long an answer from this source stays fresh. */
+function freshnessWindowMs(via) {
+  return via === 'redirect' ? UPDATE_FALLBACK_TTL_MS : UPDATE_MIN_INTERVAL_MS
+}
 
 /**
  * Read this plugin's own version from the package.json beside it.
@@ -577,16 +591,21 @@ async function fetchLatestRelease(currentVersion) {
 
 let updateInFlight = null
 let updateLastAt = 0
+let updateLastVia = null
 
 /** De-duplicating, rate-limited wrapper around fetchLatestRelease. */
 function checkForUpdateShared(dataDir, { force = false, currentVersion = null } = {}) {
   if (updateInFlight) return updateInFlight
-  const minInterval = force ? UPDATE_FORCE_MIN_INTERVAL_MS : UPDATE_MIN_INTERVAL_MS
+  // The gate uses the same window as the freshness check, so a fallback-sourced
+  // answer becomes eligible for replacement at the same moment it is considered
+  // stale — otherwise the shorter window would have no effect at all.
+  const minInterval = force ? UPDATE_FORCE_MIN_INTERVAL_MS : freshnessWindowMs(updateLastVia)
   if (Date.now() - updateLastAt < minInterval) return Promise.resolve(null)
 
   updateInFlight = fetchLatestRelease(currentVersion)
     .then(result => {
       updateLastAt = Date.now()
+      updateLastVia = result?.via ?? null
       const stamped = { ...result, checkedAt: updateLastAt, currentVersion }
       saveUpdateCache(dataDir, stamped)
       return stamped
@@ -608,7 +627,9 @@ function checkForUpdateShared(dataDir, { force = false, currentVersion = null } 
 function resolveUpdatePayload(dataDir) {
   const current = readOwnVersion()
   const cached = loadUpdateCache(dataDir)
-  const isFresh = cached && Date.now() - (cached.checkedAt ?? 0) < UPDATE_MIN_INTERVAL_MS
+  // A fallback-sourced answer expires sooner, so the authoritative source gets
+  // re-asked rather than being trusted for six hours (see UPDATE_FALLBACK_TTL_MS).
+  const isFresh = cached && Date.now() - (cached.checkedAt ?? 0) < freshnessWindowMs(cached.via)
 
   // Recompute against the version actually installed right now: the user may
   // have updated since this cache was written, which would otherwise keep

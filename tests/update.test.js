@@ -220,6 +220,40 @@ test('a cached check is recomputed against the installed version', () => {
   assert.equal(resolveUpdatePayload(tmpDir).stale, false, 'a fresh cache must not re-request')
 })
 
+test('a fallback-sourced answer expires sooner than an API one', () => {
+  // GitHub's web cache lags the API: measured right after a release, the API
+  // already reported v1.1.2 while github.com still redirected to v1.1.1. A
+  // lagging answer can only under-report, so it is re-asked an hour in rather
+  // than being trusted for six.
+  const current = resolveUpdatePayload(tmpDir).current
+  const writeWith = (via, ageMs) =>
+    fs.writeFileSync(
+      path.join(tmpDir, 'update-check.json'),
+      JSON.stringify({
+        latest: current,
+        hasUpdate: false,
+        sourceKind: 'live',
+        via,
+        checkedAt: Date.now() - ageMs
+      })
+    )
+
+  const twoHours = 2 * 60 * 60 * 1000
+
+  // Two hours old: fine for an API answer, already stale for a redirect one.
+  writeWith('api', twoHours)
+  assert.equal(resolveUpdatePayload(tmpDir).stale, false, 'an API answer is good for six hours')
+
+  writeWith('redirect', twoHours)
+  assert.equal(resolveUpdatePayload(tmpDir).stale, true, 'a fallback answer must expire after an hour')
+
+  // And the payload reports which source it came from.
+  writeWith('redirect', 0)
+  const payload = resolveUpdatePayload(tmpDir)
+  assert.equal(payload.via, 'redirect')
+  assert.equal(payload.stale, false, 'a brand-new fallback answer is still current')
+})
+
 test('the client treats null hasUpdate as unknown, not as up to date', () => {
   // The render must branch on `=== true` / `=== false` rather than truthiness,
   // otherwise null (unknown) renders as "up to date".

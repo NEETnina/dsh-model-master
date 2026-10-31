@@ -15,6 +15,8 @@
 
 <sub>也被称为 / also found as: DSH 模型选择器 · DSH 模型切换 · DSH 模型测速 · DSH 插件 · DSH model picker · DSH model selector · DSH model switcher · TTFT / TPS benchmark for DSH</sub>
 
+📖 **在线文档站**：<https://neetnina.github.io/dsh-model-master/> · **npm**：<https://www.npmjs.com/package/dsh-model-master>
+
 ### 30 秒上手
 
 ```bash

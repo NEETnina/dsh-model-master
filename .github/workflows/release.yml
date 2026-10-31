@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dev dependencies
+        run: npm install --no-save prettier@3
+
+      - name: Test
+        run: npm test
+
+      - name: Check formatting
+        run: npx prettier --check "*.js" "tests/*.js" "*.md" "*.json" "*.yml"
+
+      # 认证二选一：
+      #   ① npm 的 Trusted Publisher（推荐）：在 npmjs.com 的包设置里绑定本仓库与本 workflow，之后靠 OIDC 免密发布；
+      #   ② 仓库 Secrets 里配一个 NPM_TOKEN（Automation 类型），下面这行就会自动用它。
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Pack a version-less tarball
+        run: |
+          npm pack
+          mv dsh-model-master-*.tgz dsh-model-master.tgz
+
+      # 资产名刻意不带版本号：releases/latest/download/dsh-model-master.tgz 才能长期有效
+      - name: Attach tarball to the GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dsh-model-master.tgz
+          generate_release_notes: true

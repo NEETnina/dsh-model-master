@@ -12,7 +12,7 @@ body:
     id: plugin-version
     attributes:
       label: 插件版本
-      description: `package.json` 里的 version，或面板顶栏看到的版本号
+      description: "package.json 里的 version，或面板顶栏看到的版本号"
       placeholder: "1.1.2"
     validations:
       required: true

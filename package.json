@@ -44,13 +44,28 @@
     "deepseek-harness",
     "dsh",
     "dsh-plugin",
+    "dsh-plugins",
     "model-selector",
+    "model-picker",
+    "model-switcher",
+    "llm",
+    "llm-tools",
     "speed-test",
+    "latency-benchmark",
+    "ttft",
+    "tps",
+    "llm-benchmark",
     "benchmark",
     "leaderboard",
-    "arena",
-    "spotlight"
+    "openrouter",
+    "artificial-analysis",
+    "spotlight",
+    "i18n"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "engines": {
     "node": ">=20.0.0",
     "dsh": ">=0.2.0 <0.3.0"

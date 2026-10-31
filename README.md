@@ -1,8 +1,27 @@
-# dsh-model-master · 模型选择大师
+# dsh-model-master · DSH 模型选择器 / 模型选择大师（DeepSeek Harness model picker）
+
+<p align="center">
+  <a href="https://github.com/NEETnina/dsh-model-master/actions/workflows/ci.yml"><img src="https://github.com/NEETnina/dsh-model-master/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://www.npmjs.com/package/dsh-model-master"><img src="https://img.shields.io/npm/v/dsh-model-master.svg" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/dsh-model-master"><img src="https://img.shields.io/npm/dm/dsh-model-master.svg" alt="npm monthly downloads" /></a>
+  <a href="https://github.com/NEETnina/dsh-model-master/stargazers"><img src="https://img.shields.io/github/stars/NEETnina/dsh-model-master.svg" alt="GitHub stars" /></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
+  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node.js >= 20" />
+</p>
 
 > A Spotlight-style model switcher for **DeepSeek Harness (DSH)** — with real streaming speed probes, a live global leaderboard, and a 15-language UI.
 
 把 DSH 原生那个狭小的模型下拉列表，接管成一块可搜索、可测速、可对照全球榜单的居中大面板。**你的模型按钮和菜单仍然是原生的** —— 插件只在"小窗口即将弹出"的那一刻无缝接管。
+
+<sub>也被称为 / also found as: DSH 模型选择器 · DSH 模型切换 · DSH 模型测速 · DSH 插件 · DSH model picker · DSH model selector · DSH model switcher · TTFT / TPS benchmark for DSH</sub>
+
+### 30 秒上手
+
+```bash
+dsh plugin --profile web add dsh-model-master
+```
+
+装完重启 DSH（或等 HMR 自行重载）即可，无需构建步骤。完整说明见 [安装](#安装)。
 
 <p align="center">
   <img src="./icon.svg" width="96" height="96" alt="dsh-model-master icon" />

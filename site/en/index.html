@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DSH Model Picker · dsh-model-master (DeepSeek Harness model selector)</title>
+    <meta
+      name="description"
+      content="A model picker and selector plugin for DeepSeek Harness (DSH): search across providers, measure real streaming TTFT and TPS, smart-pick the best model, browse a global TOP100 leaderboard, 15-language UI. Zero dependencies, zero build."
+    />
+    <meta
+      name="keywords"
+      content="DSH,DeepSeek Harness,DSH plugin,model picker,model selector,model switcher,TTFT,TPS,benchmark,leaderboard,dsh-model-master"
+    />
+    <link rel="canonical" href="https://neetnina.github.io/dsh-model-master/en/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://neetnina.github.io/dsh-model-master/" />
+    <link rel="alternate" hreflang="en" href="https://neetnina.github.io/dsh-model-master/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://neetnina.github.io/dsh-model-master/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DSH Model Picker · dsh-model-master" />
+    <meta
+      property="og:description"
+      content="Turn DSH's cramped model dropdown into a searchable, benchmarkable Spotlight panel with a global leaderboard."
+    />
+    <meta property="og:url" content="https://neetnina.github.io/dsh-model-master/en/" />
+    <meta property="og:image" content="https://neetnina.github.io/dsh-model-master/screenshot-1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" href="../icon.svg" />
+  </head>
+  <body>
+    <header>
+      <img src="../icon.svg" alt="dsh-model-master icon" width="52" height="52" />
+      <div>
+        <h1>DSH Model Picker · dsh-model-master</h1>
+        <p class="lede">
+          A Spotlight-style model selector for <b>DeepSeek Harness (DSH)</b> — search across providers, measure models
+          with a real streaming request, and compare against a global leaderboard.
+        </p>
+        <p class="links">
+          <a href="https://github.com/NEETnina/dsh-model-master">GitHub</a>
+          <a href="https://www.npmjs.com/package/dsh-model-master">npm</a>
+          <a href="../">中文</a>
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <h2 id="install">Install in 30 seconds</h2>
+      <pre><code>dsh plugin --profile web add dsh-model-master</code></pre>
+      <p>
+        Restart DSH afterwards (or let HMR reload it). Requires <b>DSH</b> and <b>Node.js ≥ 20</b>. No runtime
+        dependencies, no build step.
+      </p>
+
+      <h2 id="features">What it adds</h2>
+      <ol>
+        <li><b>Find faster</b> — global search, provider grouping, and a ⚡ smart pick that locks onto the best model in the current scope.</li>
+        <li><b>See the speed</b> — real streaming probes measured server-side: TTFT (time to first token) and TPS (tokens per second).</li>
+        <li><b>Get a reference</b> — a global TOP100 leaderboard built from Artificial Analysis indices and Design Arena Elo.</li>
+      </ol>
+
+      <h2 id="honesty">No fabricated numbers</h2>
+      <ul>
+        <li>Probes run on the host and time themselves; the browser never computes a number.</li>
+        <li>A failed probe reports the failure (timeout / unreachable / 403 / quota / no key) — never an invented TPS.</li>
+        <li>The leaderboard only contains models with real benchmark fields; when the source is unreachable it shows the cached snapshot marked offline.</li>
+      </ul>
+
+      <h2 id="privacy">Privacy</h2>
+      <ul>
+        <li>No telemetry, no reporting, no tracking.</li>
+        <li>The plugin never reads, stores or logs your API keys.</li>
+        <li>Every local HTTP route is loopback-fenced (localhost / 127.0.0.1 / ::1 plus an Origin check).</li>
+      </ul>
+
+      <h2 id="ui">15-language UI</h2>
+      <p>
+        English, 中文, हिन्दी, Español, Français, العربية, বাংলা, Português, Русский, اردو, Bahasa Indonesia, Deutsch,
+        日本語, 한국어, Türkçe — with automatic RTL for Arabic and Urdu.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        MIT License ·
+        <a href="https://github.com/NEETnina/dsh-model-master">Source</a> ·
+        <a href="https://github.com/NEETnina/dsh-model-master/issues">Issues</a>
+      </p>
+    </footer>
+  </body>
+</html>

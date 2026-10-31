@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DSH 模型选择器 · dsh-model-master（DeepSeek Harness 模型大师插件）</title>
+    <meta
+      name="description"
+      content="DeepSeek Harness (DSH) 的模型选择器 / 模型选择大师：跨渠道搜索模型、真实流式测速（TTFT 首字延迟 / TPS 吞吐）、⚡ 智能优选、全球 TOP100 榜单、15 语言界面。零依赖、零构建，一条命令安装。"
+    />
+    <meta
+      name="keywords"
+      content="DSH,DeepSeek Harness,DSH 插件,模型选择器,模型选择大师,模型切换,模型测速,TTFT,TPS,首字延迟,dsh-model-master,model picker,model selector,benchmark"
+    />
+    <link rel="canonical" href="https://neetnina.github.io/dsh-model-master/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://neetnina.github.io/dsh-model-master/" />
+    <link rel="alternate" hreflang="en" href="https://neetnina.github.io/dsh-model-master/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://neetnina.github.io/dsh-model-master/" />
+    <meta name="theme-color" content="#0f1116" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DSH 模型选择器 · dsh-model-master" />
+    <meta
+      property="og:description"
+      content="把 DSH 原生那个狭小的模型下拉，接管成可搜索、可测速、可对照全球榜单的 Spotlight 大面板。"
+    />
+    <meta property="og:url" content="https://neetnina.github.io/dsh-model-master/" />
+    <meta property="og:image" content="https://neetnina.github.io/dsh-model-master/screenshot-1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./icon.svg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "dsh-model-master（模型选择大师）",
+        "alternateName": ["DSH 模型选择器", "DSH model picker"],
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "AI 模型选择与测速",
+        "operatingSystem": "Windows, macOS, Linux（作为 DeepSeek Harness 插件运行）",
+        "softwareVersion": "1.1.2",
+        "license": "https://opensource.org/licenses/MIT",
+        "url": "https://neetnina.github.io/dsh-model-master/",
+        "codeRepository": "https://github.com/NEETnina/dsh-model-master",
+        "downloadUrl": "https://www.npmjs.com/package/dsh-model-master",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+        "author": { "@type": "Person", "name": "NEETnina", "url": "https://github.com/NEETnina" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "怎么安装 dsh-model-master？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "一条命令：dsh plugin --profile web add dsh-model-master，然后重启 DSH（或等 HMR 自行重载）即可。插件零依赖、无构建步骤。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "测速是怎么测的？会不会是编出来的数字？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "服务端发起真实流式请求并自己计时，浏览器不参与任何数字计算。TTFT 是首字延迟（毫秒），TPS 是生成吞吐（token/秒）。失败就如实显示失败，并区分超时 / 不可达 / 403 / 配额 / 无密钥等原因，绝不伪造一个看起来正常的数字。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "插件会读取或上传我的 API Key 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不会。测速走 DSH 自己的 LLM provider 运行时，插件本身不读、不存、不打印任何密钥；无遥测、无上报，所有本地 HTTP 路由都有 loopback 围栏（只接受 localhost / 127.0.0.1 / ::1 并校验 Origin）。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "全球 TOP100 榜单的数据从哪来？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "来自 OpenRouter 模型目录里的 Artificial Analysis 智能指数与 Design Arena Elo。没有任何 benchmark 分数的模型直接不进榜，榜单抓不到时显示缓存并明确标注为离线。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <img src="./icon.svg" alt="dsh-model-master 图标" width="52" height="52" />
+      <div>
+        <h1>DSH 模型选择器 · dsh-model-master</h1>
+        <p class="lede">
+          DeepSeek Harness（DSH）的模型选择器 / 模型选择大师：把原生那个狭小的模型下拉列表，
+          接管成一块<b>可搜索、可测速、可对照全球榜单</b>的居中大面板。
+        </p>
+        <p class="links">
+          <a href="https://github.com/NEETnina/dsh-model-master">GitHub 仓库</a>
+          <a href="https://www.npmjs.com/package/dsh-model-master">npm 包</a>
+          <a href="./en/">English</a>
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <h2 id="install">30 秒安装</h2>
+      <pre><code>dsh plugin --profile web add dsh-model-master</code></pre>
+      <p>
+        装完重启 DSH（或等 HMR 自行重载）。需要 <b>DSH</b> 与 <b>Node.js ≥ 20</b>；插件零运行时依赖、无构建步骤。
+        也可以从源码装：<code>git clone</code> 之后 <code>dsh plugin --profile web add .</code>。
+      </p>
+
+      <h2 id="features">它解决什么问题</h2>
+      <p>DSH 原生的模型选择器是一份紧凑的下拉列表：模型一多就难找，看不出哪个快，也没有任何"这个模型到底行不行"的客观参照。这个插件补齐三件事：</p>
+      <ol>
+        <li><b>找得快</b> —— 全局搜索、按渠道分组、以及「⚡ 智能优选」直接给出当前分组里综合最优的那个。</li>
+        <li><b>看得见快</b> —— 对任意模型发起真实流式请求，测出 TTFT（首字延迟，ms）与 TPS（生成吞吐，tok/s）。</li>
+        <li><b>有参照</b> —— 全球 TOP100 榜单，数据来自 Artificial Analysis 智能指数与 Design Arena Elo。</li>
+      </ol>
+
+      <h2 id="benchmark">真实测速：TTFT 与 TPS</h2>
+      <ul>
+        <li>服务端发起流式请求并<b>自己计时</b>，浏览器不参与任何数字计算。</li>
+        <li>×1 快速 / ×3 稳定（取中位数），把单次测速约 17–22% 的随机波动压下去。</li>
+        <li>批量测速逐个进行（并发 2，单条超时上限 20s），可随时停止。</li>
+        <li><b>失败就是失败</b>：区分超时 / 不可达 / 403 / 配额 / 无密钥，绝不伪造一个看起来还行的 TPS。</li>
+        <li>测速会把推理档位显式钉在最低一档，避免"测得的是档位的速度，而不是模型的速度"。</li>
+      </ul>
+
+      <h2 id="leaderboard">全球 TOP100 榜单</h2>
+      <p>
+        最多 100 行，按 Artificial Analysis 智能指数排序，辅以代码 / Agent 指数与 Design Arena Elo。
+        点任意行会跳到本机搜索同名渠道，由你自己挑渠道（<b>不做自动匹配</b>，避免把榜单的模型错配到本地的另一个渠道）。
+        每日自动同步，离线时展示本地缓存并明确标注。
+      </p>
+
+      <h2 id="privacy">数据与隐私</h2>
+      <ul>
+        <li>不收集任何遥测；不上报；不追踪。</li>
+        <li>插件本身不接触、不存储、不打印任何 API Key。</li>
+        <li>所有本地 HTTP 路由都有 loopback 围栏：只接受 <code>localhost</code> / <code>127.0.0.1</code> / <code>::1</code> 的 Host，并校验 <code>Origin</code>。</li>
+        <li>对外请求只有两处：榜单数据源与版本检查。</li>
+      </ul>
+
+      <h2 id="faq">常见问题</h2>
+      <dl>
+        <dt>怎么安装？</dt>
+        <dd>见上面的「30 秒安装」——一条 <code>dsh plugin</code> 命令。</dd>
+        <dt>测速的数字可信吗？</dt>
+        <dd>是真实流式请求的实测值；测不出来就显示失败原因，不会编造。</dd>
+        <dt>榜单数据从哪来？</dt>
+        <dd>OpenRouter 模型目录里的 Artificial Analysis 指数与 Design Arena Elo。</dd>
+        <dt>支持哪些界面语言？</dt>
+        <dd>15 种：英文 / 中文 / 印地语 / 西班牙语 / 法语 / 阿拉伯语 / 孟加拉语 / 葡萄牙语 / 俄语 / 乌尔都语 / 印尼语 / 德语 / 日语 / 韩语 / 土耳其语（阿拉伯语与乌尔都语自动 RTL）。</dd>
+      </dl>
+    </main>
+
+    <footer>
+      <p>
+        MIT License ·
+        <a href="https://github.com/NEETnina/dsh-model-master">源码</a> ·
+        <a href="https://github.com/NEETnina/dsh-model-master/issues">反馈</a> ·
+        <a href="https://www.npmjs.com/package/dsh-model-master">npm</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neetnina.github.io/dsh-model-master/sitemap.xml
